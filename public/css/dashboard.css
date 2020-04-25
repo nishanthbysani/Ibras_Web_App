@@ -1,0 +1,776 @@
+body,
+html {
+    height: 100vh;
+}
+
+body {
+    font-family: 'Open Sans' !important;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto, 65);
+    grid-template-areas:
+        "header"
+        "sect1"
+        "sect2"
+        "sect3"
+        "main"
+        "footer";
+}
+p,h1,h2,h3,h4,h5,h6{
+    font-family: 'Open Sans' !important;
+}
+
+.customerpagediv {
+    font-family: 'Open Sans';
+    margin: 0;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto, 65);
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+
+aside {
+    grid-area: sidebar;
+    background-color: black;
+}
+
+header {
+    grid-area: header;
+    background-color: #91C8FF;
+}
+
+section:nth-of-type(1) {
+    grid-area: sect1;
+    /* background-color: #B3D8FD; */
+}
+
+section:nth-of-type(2) {
+    grid-area: sect2;
+    /* background-color: #5E86AF; */
+}
+
+section:nth-of-type(3) {
+    grid-area: sect3;
+    /* background-color: #6D9FD2; */
+}
+
+main {
+    grid-area: main;
+    /* background-color: #7DA9D5; */
+}
+
+footer {
+    grid-area: footer;
+    color:white;
+    background-color: #333;
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: auto 28% 28% 28%;
+        grid-template-rows: 6% 30% auto 5%;
+        grid-template-areas:
+            "sidebar header header header"
+            "sidebar sect1  sect2  sect3"
+            "sidebar main   main   main"
+            "sidebar footer footer footer";
+    }
+
+    .customerpagediv {
+        margin: 0 !important;
+        display: grid !important;
+        grid-template-columns: auto 28% 28% 28% !important;
+        grid-template-rows: 6% 30% auto 5% !important;
+        grid-template-areas:
+            "sidebar header header header"
+            /* "sidebar sect1  sect2  sect3" */
+            "sidebar main   main   main"
+            "sidebar footer footer footer" !important;
+    }
+
+
+    .navbarhiddenfields {
+        display: none;
+    }
+
+
+}
+
+#dashbardadminnavleft {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    /* position: relative; */
+    display: inline-block;
+    z-index: 1;
+}
+
+#dashboardadminright {
+    float: left;
+    width: 100%;
+
+}
+
+
+#dashbardadminnavleftinnerdiv {
+    padding-top: 50px;
+    text-align: center;
+}
+
+#dashbardadminnavleftinnerdiv img {
+    height: 100px;
+    width: 180px;
+}
+
+#dashbardadminnavleftinnerdiv div {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+#dashbardadminnavleftinnerdiv p {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}
+
+#dashbardadminnavleftinnerdiv p a {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Dashboard Admin users */
+.userscard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 0px 10px;
+    text-align: center;
+    font-family: 'Open Sans';
+    padding: 30px 30px;
+    border-radius: 40px;
+}
+
+.userstitle {
+    color: grey;
+    font-size: 18px;
+    text-align: center;
+}
+
+#userbuttons {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+#usera {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+#userbuttoneffect button:hover,
+a:hover {
+    opacity: 0.7;
+}
+
+#usercards div {
+    display: inline-block;
+    margin: 10px;
+}
+
+.userscard h4 {
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+}
+
+.userscard p {
+    font-size: 10px;
+    color: black;
+    text-align: center;
+}
+
+#usercards div {
+    display: inline-block;
+    width: 100%;
+}
+
+#usercards {
+    text-align: center;
+}
+
+#menulatestburgersdivdashboard {
+    width: 100%;
+    text-align: center;
+    margin: 50px 0;
+    padding-right: 20px;
+}
+
+.userscard .menulatestburgerdivpdashboard {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.userscard .menulatestburgerdivp2dashboard {
+    color: #EF0031;
+    font-size: 20px;
+    text-align: center;
+}
+
+#menulatestburgersdivdashboard div {
+    display: inline-block;
+    margin: 0 auto;
+    padding-right: 30px;
+}
+
+#menulatestburgersdivdashboard img {
+    height: 200px;
+    width: 200px;
+}
+
+.userscard div img {
+    height: 150px;
+    width: 150px;
+}
+
+#dashboardadminright h3 {
+    font-size: 60px;
+}
+
+#dashboardadminright h3 {
+    text-align: center;
+}
+
+#dashboardadminright h4 {
+    font-size: 30px;
+    font-family: "Beyond The Mountains";
+    text-align: center;
+}
+
+#usercards .trendingorders h3 {
+    font-size: 20px;
+}
+
+.earningsvalue {
+    font-size: 30px;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+    margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .navbarhiddenfields {
+        display: block !important;
+    }
+
+    .asidediv {
+        display: none !important;
+    }
+}
+
+.tableoverflowdiv {
+    overflow: auto;
+}
+
+@media screen and (min-width: 600px) {
+    .navbarhiddenfields {
+        display: none !important;
+    }
+
+    .asidediv {
+        display: block !important;
+    }
+
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    height: 100%;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: 'Open Sans';
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.topnav a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #555;
+    color: white;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+
+    .topnav a:not(:first-child),
+    .dropdown .dropbtn {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .topnav.responsive .dropdown {
+        float: none;
+    }
+
+    .topnav.responsive .dropdown-content {
+        position: relative;
+    }
+
+    .topnav.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbarhiddenfields {
+        display: block !important;
+    }
+}
+
+/* The Modal (background) */
+.menumodal,
+.updatemenumodal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.menumodal-content,
+.updatemenumodal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* The Close Button */
+.menuclose,
+.updatemenuclose {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.menuclose:hover,
+.updatemenuclose:hover,
+.menuclose:focus,
+.updatemenuclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.addmenufield {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.addmenubutton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    margin: 3px;
+}
+
+.addmenubutton:focus {
+    background-color: #45a049;
+}
+
+.addmenulabel {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.updatedelete {
+    background-color: red !important;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+    .col-25,
+    .col-75,
+    .addmenubutton {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+#menulatestburgersdivdashboard div {
+    display: inline-block;
+    margin: 0 auto;
+    padding-right: 30px;
+}
+
+#menulatestburgersdivdashboard img {
+    height: 200px;
+    width: 200px;
+}
+
+#menuitemedit {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+#userbuttoneffect button:hover,
+a:hover {
+    opacity: 0.7;
+}
+
+.updatemenuclose a {
+    text-decoration: none;
+}
+
+.addmenubutton {
+    margin-left: 30 px;
+}
+
+#review {
+    font-family: 'Open Sans';
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 2px;
+}
+
+#review td,
+#review th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#review tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#review tr:hover {
+    background-color: #ddd;
+}
+
+#review th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.myprofileclass {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 2px 0px;
+}
+
+.myprofileclass label {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.myprofileclass input {
+    width: 30%;
+    border-radius: 1px;
+    padding: 7px;
+    font-family: 'Open Sans';
+}
+
+.myprofileclass button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#myprofilesavebutton {
+    padding: 15px;
+}
+
+#myprofilephoto img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    /* padding: 30px 0px; */
+    margin: 10px 0px;
+}
+
+.removesection {
+    display: none;
+}
+
+input:read-only {
+    background-color: #dddddd !important;
+}
+
+.navbarhiddenfields {
+    display: none;
+}
+
+#dashboardsection1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* z-index: 1; */
+
+}
+
+#menuitemquantity,.menuquantity {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Alert Pop Up */
+#alertpopup,#alertpopuporder {
+    display: none;
+}
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+}
+
+.alert.success {
+    background-color: #4CAF50;
+}
+
+
+
+.alertclosebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alertclosebtn:hover {
+    color: black;
+}
+
+section .userscard{
+    margin-top :50%;
+    margin: auto;
+}
+
+#dashbardadminnavleftinnerdiv{
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}
+.menulatestburgerdivp2dashboard{
+    font-size : bold;
+}
+body{
+    font-family:'Open Sans' !important;
+
+}

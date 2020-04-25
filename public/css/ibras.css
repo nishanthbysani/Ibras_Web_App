@@ -1,0 +1,1884 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Import CSS Directive for Beyond the mountains font */
+@import url(https://db.onlinewebfonts.com/c/41f5e8ff1d98d490a19c6d48ea7b74b1?family=Beyond+The+Mountains);
+
+@font-face {
+  font-family: "Beyond The Mountains";
+  src: url("https://db.onlinewebfonts.com/t/41f5e8ff1d98d490a19c6d48ea7b74b1.eot");
+  src: url("https://db.onlinewebfonts.com/t/41f5e8ff1d98d490a19c6d48ea7b74b1.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/41f5e8ff1d98d490a19c6d48ea7b74b1.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/41f5e8ff1d98d490a19c6d48ea7b74b1.woff") format("woff"), url("https://db.onlinewebfonts.com/t/41f5e8ff1d98d490a19c6d48ea7b74b1.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/41f5e8ff1d98d490a19c6d48ea7b74b1.svg#Beyond The Mountains") format("svg");
+}
+
+/* Triangle border design */
+.cut-border {
+  background-image: url('../Images/triangle_bg_black.png');
+  opacity: 0.62;
+  background-repeat: repeat-x;
+  width: 100%;
+  float: left;
+  height: 9px;
+  background-size: 20px;
+}
+
+.cut-bottom {
+  transform: rotate(180deg);
+  opacity: 1;
+  position: absolute;
+  margin-top: -8px;
+}
+
+/* Fonts */
+body {
+  font-family: Open Sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.667;
+  background-color: black;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Beyond The Mountains";
+}
+
+p {
+  color: #555555;
+}
+
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+/*  */
+#selectedpagecolor a {
+  color: #EF0031;
+}
+
+.navigation-bar img {
+  width: 180px;
+  height: 90px;
+  padding-left: 200px;
+  padding-top: 20px;
+}
+
+.navigation-bar ul {
+  padding-bottom: 62px;
+  padding-left: 193px;
+  /* margin: 0px 28px; */
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+}
+
+.navigation-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-bar li {
+  margin-inline: 30px;
+  padding: 10px 20px;
+  display: inline;
+}
+
+#header {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  padding: 40px 0;
+  transition: 0.3s;
+}
+
+#headcontainercontacto {
+  background-image: url("../Images/hamburguesa7.jpg");
+  height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+}
+
+
+
+#headerID {
+  background-color: black;
+  opacity: 0.72;
+  width: 100%;
+}
+
+#navigation-container {
+  text-align: center;
+}
+
+.navigation a {
+  font-family: 'Open Sans';
+  font-size: 10 px;
+  font-weight: bold;
+  line-height: 1.667;
+  text-decoration: none;
+  color: white;
+}
+
+#headernavigationcontainer {
+  top: 50%;
+}
+
+#headerdivline1 {
+  text-align: center;
+  padding-top: 90px;
+  color: white;
+  font-weight: bold;
+}
+
+#headerdivline2 {
+  text-align: center;
+  /* padding-top: 90px; */
+  color: white;
+  font-size: 3em;
+  position: relative;
+}
+
+#remainingcontainer {
+  /* opacity: 0.25; */
+  /* background-color: black; */
+  background-color: rgba(0, 0, 0, 0.50);
+  height: 74%;
+  position: relative;
+  width: 100%;
+}
+
+/* #headcontainercontacto::before{
+    background-image: url("../Images/hamburguesa7.jpg");
+  height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+  opacity:0.5;
+  z-index: -1;;
+} */
+#ContactForm {
+  background-color: black;
+  height: 600px;
+}
+
+#FormImage img {
+  height: 30px;
+  width: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+}
+
+#FormImage p {
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px 0px 60px 0px;
+}
+
+#FormImage h2 {
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: "Beyond The Mountains";
+  font-size: 50px;
+}
+
+#FormImage h5,
+h6 {
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* font-family: "Beyond The Mountains"; */
+  /* font-size:30px;  */
+  padding: 10px 0px;
+}
+
+#InlineForm {
+  width: 100%;
+  float: left;
+}
+
+#InlineForm input {
+  height: 30px;
+  width: 300px;
+}
+
+#FormFirstLine {
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 20px 10px 10px 10px;
+}
+
+#FormFirstLine input {
+  display: inline-block;
+  margin: 0px 10px;
+  width: 34%;
+}
+
+#FormOtherLines {
+  display: inline-block;
+  width: 80%;
+}
+
+#FormSubject input,
+textarea {
+  display: inline-block;
+  width: 70%;
+  text-align: left;
+  margin: 7px 0px;
+}
+
+#FormSubject {
+  padding-left: 17px;
+}
+
+#FormSubject textarea {
+  height: 200px;
+}
+
+#FormButton {
+  display: block;
+  text-align: center;
+}
+
+#contactobuttonlocation {
+  padding: 20px 0px 60px 0px;
+}
+
+/* Menu Page CSS */
+#headcontainermenu {
+  background-image: url("../Images/hamburguesa5.jpg");
+  height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+}
+
+#menumaindiv {
+  background-color: black;
+}
+
+#menumaindiv h3 {
+  color: white;
+  display: block;
+  text-align: center;
+  font-size: 3em;
+  padding-top: 80px;
+}
+
+#menulatestburgersdiv {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+  padding-right: 20px;
+}
+
+.menulatestburgerdivp {
+  color: white;
+  text-align: center;
+}
+
+.menulatestburgerdivp2 {
+  color: #EF0031;
+  font-size: 20px;
+  text-align: center;
+}
+
+#menulatestburgersdiv div {
+  display: inline-block;
+  margin: 0 auto;
+  padding-right: 30px;
+}
+
+#menulatestburgersdiv img {
+  height: 200px;
+  width: 200px;
+}
+
+#menuremainingburgersdiv {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+}
+
+#menuremainingburgersdiv img {
+  height: 70px;
+  width: 70px;
+}
+
+#menuremainingburgersdivrow div {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#menuremainingburgersdiv table {
+  margin: 0 auto;
+  position: relative;
+  width: 70%;
+}
+
+.menuremainingburgersp {
+  color: #EF0031;
+}
+
+/* #menuremainingburgersdiv table,td,tr{
+  border: 1px solid white;
+} */
+#menuremainingburgersdiv P {
+  text-align: left;
+  position: relative;
+  bottom: 50px;
+}
+
+/* Inicio Page */
+#headcontainerinicio {
+  background-image: url("../Images/hamburguesa2.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+  overflow: hidden;
+}
+
+/* main{
+    float: left;
+    width: 100%;
+  } */
+#headerIDinicio {
+  background-color: black;
+  opacity: 0.72;
+  width: 100%;
+  position: relative;
+}
+
+#remainingcontainerinicio {
+  background-color: rgba(0, 0, 0, 0.50);
+  height: 100%;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+#headerdivline1inicio {
+  text-align: center;
+  padding-top: 250px;
+  color: white;
+  font-weight: bold;
+}
+
+#headerdivline2inicio {
+  text-align: center;
+  color: white;
+  font-size: 6em;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+#iniciobannerbutton {
+  background-color: #EF0031;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 2px solid white;
+}
+
+#maindivhistory {
+  padding-top: 50px;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+#maindivburgerimg {
+  height: 40px;
+  width: 40px;
+}
+
+.maindivinformation1 {
+  width: 30%;
+  float: left;
+  /* background-color: white; */
+  height: 300px;
+  padding-left: 20%;
+  text-align: left;
+}
+
+.maindivinformation2 {
+  width: 30%;
+  float: left;
+  /* background-color: white; */
+  height: 300px;
+  padding-left: 5%;
+  padding-right: 10%;
+  text-align: left;
+
+}
+
+#maindivhistory h3 {
+  color: white;
+  font-size: 2.5em;
+  padding-bottom: 30px;
+}
+
+.maindivinformation1 p,
+.maindivinformation2 p {
+  color: white;
+}
+
+#maindivmenubackground {
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+#maindivmenu {
+  background-image: url("../Images/hamburguesa1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+  float: left;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.50);
+
+}
+
+#maindivmenu h3 {
+  color: white;
+  font-size: 2.5em;
+  padding-bottom: 30px;
+}
+
+#mainstoryleftimg {
+  position: absolute;
+  /* left: 0px;
+  top: 0px; */
+  /* object-position: 0 0; */
+  background-image: url("../Images/story1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 400px;
+  width: 30%;
+}
+
+#mainstoryleftimg img {
+  height: 300px;
+  width: 300px
+}
+
+#mainstoryrightimg {
+  position: absolute;
+  background-image: url("../Images/story2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 400px;
+  width: 100%;
+  float: right;
+  background-position: 100% 80%;
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+
+#mainstoryrightimg img {
+  height: 300px;
+  width: 300px;
+}
+
+#maindivstyle {
+  text-align: center;
+  color: white;
+  height: 50px;
+  font-size: 40px;
+  padding-bottom: 30px;
+}
+
+#iniciolatestburgersdiv {
+  padding-right: 30px;
+}
+
+#iniciolatestburgersdiv {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+}
+
+#iniciolatestburgersdiv div {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#iniciolatestburgersdiv img {
+  height: 200px;
+  width: 200px;
+  padding-right: 35px;
+  margin: 0 auto;
+}
+
+.iniciolatestburgersdivp {
+  color: #fff;
+  text-align: center;
+}
+
+.iniciomenuprices {
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+}
+
+.iniciomenuorderbutton {
+  color: #EF0031;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border: none;
+  border: 2px solid #EF0031;
+  background-color: transparent;
+}
+
+.iniciomenuorderbutton p {
+  color: #EF0031;
+}
+
+#iniciomenubannerbutton {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+/* Iniciar Sesion Background */
+#iniciarsesionbackground {
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sobre Nosotros */
+#headcontainerSobrenosotros {
+  background-image: url("../Images/hamburguesa4.jpg");
+  height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+}
+
+#sobremaincontaineraboutus {
+  width: 100%;
+  float: left;
+}
+
+#sobremaincontainerimages img {
+  display: inline-block;
+  text-align: center;
+  width: 30%;
+  height: 400px;
+  width: 500px;
+  padding: 100px 20px;
+}
+
+#sobremaincontainerinfo1 {
+  padding: 50px 0px;
+  width: 100%;
+  float: left;
+}
+
+#sobremaincontainerinfo1 p {
+  color: #fff;
+  text-align: center;
+}
+
+#sobremaincontainerinfo2 {
+  width: 100%;
+  float: left;
+}
+
+#sobremaincontainerinfo2 p {
+  color: #fff;
+  width: 30%;
+  display: inline-block;
+  padding: 10px 20px 50px 20px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+#sobresmaincontainerbuttons {
+  width: 100%;
+  float: left;
+}
+
+#sobresmaincontainerbuttons div {
+  display: inline-block;
+  padding: 10px 10px 60px 10px;
+}
+
+#sobresbannerbutton {
+  background-color: #EF0031;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 25px;
+  border: none;
+  border-bottom: 2px solid white;
+}
+
+#Sobresbannerbutton {
+  background-color: rgb(49, 139, 49);
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 25px;
+  border: none;
+  border-bottom: 2px solid white;
+}
+
+#sobresclientinformationdiv,
+#clientsinfo {
+  width: 100%;
+  float: left;
+  color: white;
+}
+
+#sobresclientinformationdiv {
+  background-image: url("../Images/hamburguesa1.jpg");
+  height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+}
+
+#sobresclientinformationdivbackground {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 550px;
+}
+
+#sobresclientinformationdivbackground div {
+  display: inline-block;
+  text-align: center;
+  margin: 0px 50;
+  width: 100%;
+  padding-top: 30px;
+  ;
+}
+
+#sobresclientinformationdivbackground div img {
+  display: inline-block;
+  text-align: center;
+  margin: 0px 50;
+}
+
+#clientsinfo div {
+  display: inline-block;
+  width: 15%;
+}
+
+#clientsinfo div img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 30px 0px;
+}
+
+#clientsinfo div h4,
+p {
+  text-align: left;
+}
+
+.clientnamehighlight {
+  color: #EF0031;
+}
+
+#clientsinfo div h4,
+p {
+  color: #fff;
+}
+
+#clientsinfo div h4 {
+  color: #fff;
+  font-size: 20px;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+#clientsinfo div p {
+  font-size: 12px;
+  ;
+}
+
+#clientsinfo div p {
+  text-align: center;
+}
+
+/* Modal */
+.modalpopup {
+  border: 0.1px solid lightgray;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 5px;
+  padding-bottom: 4px;
+  width: 30%;
+  background-color: #ffffff;
+}
+
+#registropopupmargin {
+  margin-top: 150px;
+  display: none;
+  position: fixed;
+
+}
+
+#registerdivmodalpage {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.loginForm {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.loginForm input {
+  width: 92%;
+  height: 30px;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-radius: 4px;
+  border: 2px solid lightgrey;
+}
+
+.loginForm label {
+  font-weight: bold;
+}
+
+.button1 {
+  background-color: #EF0031;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px;
+  /* float: right; */
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  height: 0.8px;
+  background: lightgray;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 4px;
+  font-style: normal;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalHeaderPopup,
+.modalBodypopup {
+  margin-left: 0%;
+}
+
+.modalHeaderPopup {
+  margin-top: 5%;
+}
+
+.modalHeaderPopup h2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+#modalheadinginiciarsesion {
+  display: inline-block;
+  width: 100%;
+  font-family: "Beyond The Mountains";
+  font-size: 45px;
+}
+
+.modalclassinlinepopup {
+  display: inline-block;
+}
+
+/* Footer CSS */
+#footer {
+  width: 100%;
+  float: left;
+  height: 600px;
+  background-image: url("../Images/hamburguesa3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+}
+
+#footerdiv {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.90);
+}
+
+#footerdivcontent {
+  display: block;
+  margin: 0 41%;
+  padding-top: 5%;
+  text-align: center;
+
+}
+
+#footerdivcontent div img {
+  height: 150px;
+  width: 210px;
+
+}
+
+.footertexthighlighted {
+  padding-top: 1%;
+  color: #37B143;
+  position: relative;
+  text-decoration: underline;
+}
+
+.footertextnormal {
+  padding-top: 1%;
+  color: #fff;
+  position: relative;
+}
+
+#socialnetworking i {
+  margin-top: 10px;
+  margin-left: 10px;
+  color: white;
+}
+
+#footercopyright {
+  font-weight: 10px;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+}
+
+
+
+/* Admin Dashboard */
+#dashboardadminmainpage {
+  height: 1000px;
+  width: 100%;
+  float: left;
+
+}
+
+#dashbardadminnavleft {
+  height: 100%;
+  width: 15%;
+  background-color: #000;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+#dashboardadminrightdiv {
+  height: 100%;
+  width: 85%;
+  background-color: white;
+  position: relative;
+  float: right;
+  display: inline-block;
+}
+
+#dashbardadminnavleft p {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  padding: 5px 0px;
+  width: 100%;
+}
+
+#dashbardadminnavleft a {
+  text-decoration: none;
+  color: white;
+}
+
+#dashbardadminnavleftinnerdiv {
+  padding-top: 50px;
+  text-align: center;
+}
+
+#dashbardadminnavleftinnerdiv img {
+  height: 100px;
+  width: 180px;
+}
+
+#dashbardadminnavleftinnerdiv div {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+#dashboardadmintopnav {
+  display: inline-block;
+  width: 100%;
+  height: 5%;
+}
+
+#dashboardadmintopnavuser img {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  float: right;
+}
+
+#dashboardadmintopnavuser h4 {
+  display: inline-block;
+  float: right;
+}
+
+#dashboardadminright {
+  float: left;
+  width: 100%;
+
+}
+
+.myprofileclass {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 2px 0px;
+}
+
+.myprofileclass label {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.myprofileclass input {
+  width: 30%;
+  border-radius: 1px;
+  padding: 7px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.myprofileclass button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#myprofilesavebutton {
+  padding: 15px;
+}
+
+#myprofilephoto img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  padding: 30px 0px;
+}
+
+#dashboardproductname {
+  color: black;
+}
+
+/* Dashboard Admin users */
+.userscard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 0px 10px;
+  text-align: center;
+  font-family: arial;
+  padding: 30px 30px;
+}
+
+.userstitle {
+  color: grey;
+  font-size: 18px;
+  text-align: center;
+}
+
+#userbuttons {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+#usera {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+#userbuttoneffect button:hover,
+a:hover {
+  opacity: 0.7;
+}
+
+#usercards div {
+  display: inline-block;
+}
+
+.userscard h4 {
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+}
+
+.userscard p {
+  font-size: 10px;
+  color: black;
+  text-align: center;
+}
+
+#usercards div {
+  display: inline-block;
+  width: 100%;
+}
+
+#usercards {
+  text-align: center;
+}
+
+#menulatestburgersdivdashboard {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+  padding-right: 20px;
+}
+
+.userscard .menulatestburgerdivpdashboard {
+  color: black;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.userscard .menulatestburgerdivp2dashboard {
+  color: #EF0031;
+  font-size: 20px;
+  text-align: center;
+}
+
+#menulatestburgersdivdashboard div {
+  display: inline-block;
+  margin: 0 auto;
+  padding-right: 30px;
+}
+
+#menulatestburgersdivdashboard img {
+  height: 200px;
+  width: 200px;
+}
+
+.userscard div img {
+  height: 150px;
+  width: 150px;
+}
+
+#dashboardadminright h3 {
+  font-size: 60px;
+}
+
+#dashboardadminright h3 {
+  text-align: center;
+}
+
+#dashboardadminright h4 {
+  font-size: 30px;
+  font-family: "Beyond The Mountains";
+  text-align: center;
+}
+
+#usercards .trendingorders h3 {
+  font-size: 20px;
+}
+
+.earningsvalue {
+  font-size: 30px;
+}
+
+
+
+
+/* Sampada CSS */
+
+
+#Checkout {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.Checkoutrow {
+  display: inline-flex;
+  -ms-inline-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 0px 3px 0px;
+}
+
+.column-25 {
+  -ms-flex: 25%;
+  flex: 25%;
+}
+
+.column-50 {
+  -ms-flex: 50%;
+  flex: 43%;
+}
+
+.column-50 input {
+  width: 75%;
+}
+
+.column-75 {
+  -ms-flex: 75%;
+  flex: 75%;
+}
+
+.column-25,
+.column-50,
+.column-75 {
+  padding: 1px 12px -2px 41px;
+  ;
+}
+
+.mainContainer {
+  background-color: #f2f2f2;
+  /* padding: 5px 20px 15px 20px; */
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+/* input[type=text] {
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+*/
+.column-50 label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icons {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+@media (max-width: 800px) {
+  .Checkoutrow {
+    flex-direction: column-reverse;
+  }
+
+  .column-25 {
+    margin-bottom: 20px;
+  }
+}
+
+.mainContainercart {
+  width: 80%;
+}
+
+.dashboardadminrightdiv div {
+  margin-left: 147px;
+}
+
+.Profile img {
+  border-radius: 50%;
+  width: 0px;
+}
+
+.fields {
+  margin: "0px 0px 0px 0px"
+}
+
+.values {
+  margin: "0px 0px 0px 0px"
+}
+
+#errormessage {
+  color: #EF0031 !important;
+}
+ div#contactnameErr,div#contactemailErr,div#contactsubjectErr,div#contactmessageErr{
+  color: red !important;
+  text-align: center;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0)
+  }
+
+  to {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+p#dashboardadminusername {
+  color: black !important;
+}
+
+input:focus:valid,
+input:required:valid {
+  border: 2px solid black;
+  background-image: url(../Images/valid.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+input:not(:focus) {
+  border: 2px solid black;
+}
+
+/* input:invalid {
+   */
+/* border : 2px solid red; */
+input:required:invalid,
+input:focus:invalid {
+  border: 2px solid red;
+  background-image: url(../Images/invalid.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+/* input:invalid:required {
+  border: 2px solid  red;
+} */
+
+
+#LoginMessage {
+  display: none;
+}
+
+/* body{
+  width: 80% !important;
+} */
+
+
+
+/* ! Delete this later */
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: Hidden;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* div.modal#id01 {
+  width: 100% !important;
+  height: 100% !important;
+} */
+
+@media (min-width: 576px) and (max-device-width: 768px) {
+  div.modal#id01 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-device-width: 1200px) {
+  div.modal#id01 {
+    width: 50%;
+  }
+}
+
+/* @media (min-width: 768px) {
+  div.modal#id01 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  div.modal#id01 {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  div.modal#id01 {
+    width: 50%;
+  }
+} */
+
+#id01 div form {
+  width: 50%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* ! Delete this later */
+
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {
+  background-color: #4CAF50;
+}
+
+#alertpopup {
+  display: none;
+}
+
+.alertclosebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.alertclosebtn:hover {
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  #navbaricon {
+    height: 100px !important;
+    width: 150px !important;
+    /* float:left; */
+  }
+
+  #iniciolatestburgersdiv img {
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+  #iniciolatestburgersdiv div {
+    margin-bottom: 20px;
+  }
+
+  #iniciolatestburgersdiv {
+    padding: 0px;
+  }
+
+  #footerdivcontent div img {
+    margin: 0 auto;
+  }
+
+  #footerdivcontent div {
+    width: 100% !important;
+  }
+
+  #footerdivcontent {
+    display: inline;
+  }
+
+  #remainingcontainer {
+    height: 100%;
+  }
+
+  #sobremaincontainerimages img {
+    width: 100%;
+    height: 50%;
+  }
+
+  #sobremaincontainerimages img:nth-child(1) {
+    padding: 100px 0px 25px 0px;
+    margin: 0 auto;
+
+  }
+
+  #sobremaincontainerimages img:nth-child(2) {
+    padding: 25px 0px 50px 0px;
+    margin: 0 auto;
+  }
+
+  #sobremaincontainerimages img {
+    margin: 0 auto;
+  }
+
+  #clientsinfo div {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #wrapper,
+  .wrapper {
+    width: 100%;
+  }
+
+  #headcontainerSobrenosotros {
+    height: 100vh;
+  }
+
+  #headcontainermenu {
+    height: 100vh;
+  }
+
+  #headerdivline1 {
+    padding-top: 200px;
+  }
+}
+
+@media screen and (max-width :600px) {
+  #headerdivline2inicio {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  #headerdivline1inicio {
+    padding-top: 150px;
+  }
+
+  #wrapper {
+    z-index: 1;
+  }
+
+  #maindivhistory {
+    margin-bottom: 450px;
+    font-size: 14px;
+  }
+
+  #mainstoryleftimg,
+  #mainstoryrightimg {
+    display: none;
+  }
+
+  #footerdivcontent div img {
+    margin: 0 auto;
+  }
+
+  #menulatestburgersdiv div {
+    /* padding-right: 0px; */
+    padding: 0;
+  }
+
+  #menupagetable tr,
+  #menupagetable tr td {
+    display: inline;
+  }
+
+  #headcontainercontacto #remainingcontainer {
+    height: 82%;
+  }
+
+  #FormFirstLine input,
+  #FormSubject input {
+    display: inline-block;
+    width: 70%;
+    margin: 5px 0%;
+  }
+
+  #FormFirstLine,
+  #FormSubject {
+    padding: 0%;
+    /* margin :7px 0px; */
+  }
+
+  #registropopupmargin {
+    width: 100%;
+  }
+
+  .modalHeaderPopup,
+  .modalBodypopup {
+    margin-left: 5%;
+  }
+
+  .modalHeaderPopup {
+    margin-top: 5%;
+  }
+
+  .modalHeaderPopup h2 {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  #id01 div form {
+    width: 85%;
+  }
+
+  #navbaricon {
+    margin-left: 30px !important;
+    margin-right: 0px !important;
+  }
+
+}
+
+.topnav {
+  overflow: hidden;
+  /* background-color: #333; */
+  text-align: center;
+  margin: 0 auto;
+
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin: auto;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  /* background-color: #EF0031; */
+  color: #EF0031;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.topnav a,
+.topnav img {
+  display: inline-block;
+}
+
+#navbaricon {
+  height: 110px;
+  width: 171px;
+  float: left;
+  margin-left: 100px;
+  margin-right: 45px;
+}
+
+@media screen and (min-width :1000px) {
+  body {
+    width: 80%;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    /* overflow: hidden; */
+  }
+
+  #headerIDinicio a {
+    margin: 35px auto 0px auto;
+  }
+
+  /* .topnav{
+    margin: 0 auto;
+    float: none;
+  } */
+}
+
+@media screen and (min-width :1000px) {
+  #remainingcontainer {
+    height: 100%;
+  }
+}
+
+
+/* #myTopnav a{
+  padding-top: 30px;
+} */
+
+#headerIDinicio a {
+  font-weight: bold;
+}
