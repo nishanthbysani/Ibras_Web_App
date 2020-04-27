@@ -3,7 +3,7 @@
     <div>
         <!-- action="Dashboard_Admin.php" -->
         <form action="/inicio/login" name="loginform" class="modal-content animate" onSubmit="return loginvalidate()" method="post">
-
+            @csrf
             <div class="modalHeaderPopup">
                 <span class="close " onclick="document.getElementById('id01').style.display='none'">&times;</span>
 
@@ -50,6 +50,7 @@
 <!-- <div id="registerdivmodalpage"> -->
 <div class="modalpopup registration-page" id="registropopupmargin">
     <form action="/inicio/registration" name="registrationform" class="animate" method="post" onSubmit="return registerationvalidate()">
+        @csrf
         <div class="modalHeaderPopup">
             <header id="modalheadinginiciarsesion">
                 <img src="..\Images\Burguer.png" alt="" id="maindivburgerimg" class="modalclassinline">

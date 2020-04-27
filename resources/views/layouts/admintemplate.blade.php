@@ -23,18 +23,18 @@
     <header>
         <div class="topnav" id="myTopnav">
             <div class="dropdown">
-                <button class="dropbtn" onclick="dropdownvisible()"> <i class="fas fa-user"></i> Welcome
+                <button class="dropbtn" onclick="dropdownvisible()"> <i class="fas fa-user"></i> Welcome {{session()->get('loggedinusername')}}
                 </button>
                 <div class="dropdown-content">
                     <a href="../HTML/AdminMyProfile.php">My Profile</a>
-                    <a href="../HTML/Dashboard.php" class="navbarhiddenfields">Home</a>
-                    <a href="../HTML/AdminMenuPage.php" class="navbarhiddenfields">Menu</a>
-                    <a href="../HTML/AdminReviewPage.php" class="navbarhiddenfields">Reviews</a>
-                    <a href="" class="navbarhiddenfields">Users</a>
-                    <a href="../HTML/AdminEnquiryPage.php" class="navbarhiddenfields">Enquiries</a>
-                    <a href="../HTML/AdminStaffTimeSheet.php" class="navbarhiddenfields">Timesheet</a>
-                    <a href="../HTML/AdminInventory.php" class="navbarhiddenfields">Inventory</a>
-                    <a href="../HTML/logout.php">Logout</a>
+                    <a href="/adminhome" class="navbarhiddenfields">Home</a>
+                    <a href="/adminmenu" class="navbarhiddenfields">Menu</a>
+                    <a href="/adminreview" class="navbarhiddenfields">Reviews</a>
+                    <a href="/adminusers" class="navbarhiddenfields">Users</a>
+                    <a href="./adminenquiry" class="navbarhiddenfields">Enquiries</a>
+                    <a href="/admintimesheet" class="navbarhiddenfields">Timesheet</a>
+                    <a href="/admininventory" class="navbarhiddenfields">Inventory</a>
+                    <a href="/logout">Logout</a>
                 </div>
             </div>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
