@@ -1588,9 +1588,12 @@ span.psw {
   background-color: #4CAF50;
 }
 
-#alertpopup {
-  display: none;
+.alert.unsuccess {
+  background-color: red;
 }
+/* #alertpopup {
+  display: none;
+} */
 
 .alertclosebtn {
   margin-left: 15px;

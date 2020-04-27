@@ -1,19 +1,9 @@
-<?php
-include("config.php");
-include('loginregistrationvalidation.php');
-if (session_id() == '') {
-    session_start();
-    $_SESSION['loginerrorFlag'] = FALSE;
-    $_SESSION['registererrorFlag'] = FALSE;
-}
-$error = '';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include("header.php"); ?>
+    @extends('header')
+
     <title>Menu</title>
 </head>
 
@@ -24,10 +14,11 @@ $error = '';
         <header id="headerIDinicio">
             <div class="topnav" id="myTopnav">
                 <img id="navbaricon" src="..\Images\5.png" alt="logo" />
-                <a href=../HTML/Inicio.php>INICIO </a> <a href="../HTML/SobreNosotros.php">SOBRE NOSOTROS</a>
-                <a href="../HTML/Menu.php" class="active">MENU</a>
+                <a href="inicio">INICIO </a> 
+                <a href="sobrenosotros">SOBRE NOSOTROS</a>
+                <a href="#" class="active">MENU</a>
                 <a href="https://nxb4645.uta.cloud/blog/">BLOG</a>
-                <a href="../HTML/Contacto.php">CONTACTO</a>
+                <a href="contacto">CONTACTO</a>
                 <a href="#" onclick="document.getElementById('registropopupmargin').style.display='block'">REGISTRO</a>
                 <a href="#" onclick="document.getElementById('id01').style.display='block'">INICIAR SESSION</a>
                 <!-- <button type="button" onclick="document.getElementById('registropopupmargin').style.display='block'" style="width:auto;">REGISTRO</button></li>
@@ -166,43 +157,10 @@ $error = '';
         <div class="cut-border cut-bottom"></div>
     </main>
     <!-- Footer Starts -->
-    <footer id="footer">
-    <div class="cut-border"></div>
-
-        <div id="footerdiv">
-            <div id="footerdivcontent">
-                <div> <img src="..\Images\5.png" alt=""> </div>
-                <div class="footertexthighlighted">
-                    <h4>Habla a:</h4>
-                </div>
-                <div class="footertextnormal">
-                    <h4>Av. Intercomunal, sector la Mora, calle 8</h4>
-                </div>
-                <div class="footertexthighlighted">
-                    <h4>Telefono:</h4>
-                </div>
-                <div class="footertextnormal">
-                    <h4>+58 251 261 00 01</h4>
-                </div>
-                <div class="footertexthighlighted">
-                    <h4>Correo:</h4>
-                </div>
-                <div class="footertextnormal">
-                    <h4>yourmail@gmail.com</h4>
-                </div>
-                <div id="socialnetworking"><i class="fab fa-pinterest"></i><i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fas fa-basketball-ball"></i><i class="fab fa-linkedin"></i><i class="fab fa-vimeo-v"></i></div>
-
-            </div>
-            <div>
-                <h4 id="footercopyright">Copyright &copy;2020 Todos los derechos reservados | Este sitio esta hecho con &hearts; por DiazApps
-                </h4>
-            </div>
-
-        </div>
-    </footer>
+    @extends('footer')
 
 
-    <?php include("registrationandloginmodal.php"); ?>
+@extends('loginandregistrationform')
 </body>
 
 </html>

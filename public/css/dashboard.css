@@ -508,7 +508,18 @@ a:hover {
     float: right;
     font-size: 28px;
     font-weight: bold;
+
 }
+.closebutton{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+
 
 .menuclose:hover,
 .updatemenuclose:hover,
