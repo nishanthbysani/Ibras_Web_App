@@ -104,11 +104,13 @@ class IbrasHomepageController extends Controller
         if ($numberofusers != 0) {
             // User Exists already
             error_log('user already exists');
-        }
-        else
-        {
-
+        } else {
         }
         return $fullname . "<br>" . $username . "<br>" . $password . "<br>" . $repeatpassword . "<br>" . $address . "<br>" . $usertype;
+    }
+    public function indexlogout()
+    {
+        session()->flush();
+        return redirect('/inicio');
     }
 }

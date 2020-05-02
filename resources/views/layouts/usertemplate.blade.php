@@ -23,8 +23,8 @@
                 <div class="dropdown-content">
                     <a href="../HTML/CustomerMyProfile.php">My Profile</a>
                     <p><a href="/customerhome" class="navbarhiddenfields">Menu</a></p>
-                    <p><a href="../HTML/CustomerCartPage.php" class="navbarhiddenfields">Cart</a></p>
-                    <p><a href="../HTML/CustomerOrdersPage.php" class="navbarhiddenfields">Orders</a></p>
+                    <p><a href="/customercart" class="navbarhiddenfields">Cart</a></p>
+                    <p><a href="/customerorders" class="navbarhiddenfields">Orders</a></p>
                     <!-- <a href="../HTML/CustomerOrdersPage.php" class="navbarhiddenfields">Enquiries</a> -->
                     <a href="/logout">Logout</a>
                 </div>

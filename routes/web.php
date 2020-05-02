@@ -41,6 +41,9 @@ Route::post('/inicio/login', 'IbrasHomepageController@storelogincheck');
 // Registration Post
 Route::post('/inicio/registration', 'IbrasHomepageController@storeregistrationcheck');
 
+// Logout
+Route::get('/logout', 'IbrasHomepageController@indexlogout');
+
 // ?----------------IbrasAdmin Routes------------------------------------------------------------------------------------------------
 // Admin Home
 Route::get('/adminhome', 'IbrasAdminController@indexadmindashboard');
