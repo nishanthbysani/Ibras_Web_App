@@ -734,9 +734,9 @@ input:read-only {
 }
 
 /* Alert Pop Up */
-#alertpopup,#alertpopuporder {
+/* #alertpopup,#alertpopuporder {
     display: none;
-}
+} */
 .alert {
     padding: 20px;
     background-color: #f44336;

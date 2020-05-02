@@ -7,6 +7,7 @@ use PharIo\Manifest\Email;
 
 use App\Contact;
 use App\UsersIbras;
+
 use Illuminate\Support\Facades\DB;
 
 class IbrasHomepageController extends Controller

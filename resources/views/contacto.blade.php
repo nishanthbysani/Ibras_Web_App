@@ -56,7 +56,7 @@
                 @elseif(Session::get('querystatus') == 'unsuccess')
                 <div class="alert unsuccess" id="alertpopup">
                     <span class="alertclosebtn" onclick="document.getElementById('alertpopup').style.display='none';">&times;</span>
-                    <strong>Success!</strong> Error during forwarding your query.
+                    <strong>Error!</strong> Error during forwarding your query.
                 </div>
                 @endif
                 @endif
