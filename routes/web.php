@@ -89,3 +89,5 @@ Route::post('/deletefromcart', 'IbrasUserController@storedeletefromcart');
 Route::get('/placeorder', 'IbrasUserController@indexplaceorder');
 // Orders Page
 Route::get('/customerorders', 'IbrasUserController@indexuserorders');
+// Feedback Page
+Route::get('/customerfeedback', 'IbrasUserController@indexuserfeedback');

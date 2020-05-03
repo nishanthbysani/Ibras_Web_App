@@ -25,6 +25,7 @@
                     <p><a href="/customerhome" class="navbarhiddenfields">Menu</a></p>
                     <p><a href="/customercart" class="navbarhiddenfields">Cart</a></p>
                     <p><a href="/customerorders" class="navbarhiddenfields">Orders</a></p>
+                    <p><a href="/customerfeedback" class="navbarhiddenfields">Feedback</a></p>
                     <!-- <a href="../HTML/CustomerOrdersPage.php" class="navbarhiddenfields">Enquiries</a> -->
                     <a href="/logout">Logout</a>
                 </div>
@@ -32,7 +33,7 @@
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
         </div>
     </header>
-    
+
     @yield('content')
 
     <footer>

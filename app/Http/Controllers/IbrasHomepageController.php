@@ -56,15 +56,10 @@ class IbrasHomepageController extends Controller
         // Login Form Check
         $username = request('username');
         $password = request('password');
-        // Login Form Validation
-        // $validation = $request->validate([
-        //     'username'=>'required|email',
-        //     'password'=>array('required', 'regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?:{}|<>]).{8,10}$/')
-        //     // (?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?:{}|<>]).{8,10}
-        // ]);
-        // error_log('Validation Completed');
-        // return $validation;
-
+        $request->validate([
+            'username' => 'required|regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/|unique:App\Users,email_id',
+            'password' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/',
+        ]);
         // Check if the username and password is in the DB
         $numberofusers = UsersIbras::where("Username", $username)->where("Password", $password)
             ->count('UserID');
@@ -100,6 +95,14 @@ class IbrasHomepageController extends Controller
         $usertype = request('registerusertype');
 
         // Add Validation
+        $request->validate([
+            'registerfullname' => 'required|alpha',
+            'registerpassword' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/',
+            'registerrepeatpassword' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/|same:password',
+            'registeremail' => 'required|regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/|unique:App\UsersIbras,UserName',
+            'registeraddress' => 'required',
+            'registerusertype'=>'required'
+        ]);
         $numberofusers = UsersIbras::where("Username", $username)
             ->count('UserID');
 

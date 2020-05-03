@@ -785,3 +785,6 @@ body{
     font-family:'Open Sans' !important;
 
 }
+.ratingschecked {
+    color: orange;
+  }

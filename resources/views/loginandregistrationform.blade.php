@@ -15,7 +15,7 @@
             </div>
             <hr>
             <div class="modalBodypopup container">
-                <span class="close " onclick="document.getElementById('id01').style.display='none'">&times;</span>
+                <!-- <span class="close " onclick="document.getElementById('id01').style.display='none'">&times;</span> -->
                 <div class="loginForm">
                     <label>Usuario:</label><br>
                     <input type="email" name="username" id="loginusername" required>
@@ -29,7 +29,6 @@
                     <div class="error" id="passwordErr"></div>
                 </div>
                 <p>
-
                 </p>
                 <!-- Horizontal Line -->
                 <hr>
@@ -91,7 +90,6 @@
         </div>
         <!-- Horizontal Line -->
         <hr>
-
         <div class="modalFooterpopup">
             <button class="button1" type="submit">Cargar</button>
         </div>

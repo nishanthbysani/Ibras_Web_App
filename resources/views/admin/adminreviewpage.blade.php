@@ -42,9 +42,16 @@
                 </td>
                 <td>
                     @if(empty( $reviewitems->Ratings))
-                    {{'null'}}
+                    @for ($i = 0; $i < 5; $i++) 
+                    <span class="fa fa-star"></span>
+                    @endfor
                     @else
-                    {{$reviewitems->Ratings}}
+                        @for ($i = 0; $i < $reviewitems->Ratings; $i++)
+                            <span class="fa fa-star ratingschecked"></span>
+                        @endfor
+                        @for ($i = 0; $i < 5-$reviewitems->Ratings; $i++)
+                            <span class="fa fa-star "></span>
+                        @endfor
                     @endif
                 </td>
                 <td>{{$reviewitems->username}}</td>

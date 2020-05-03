@@ -165,4 +165,9 @@ class IbrasUserController extends Controller
         $orderslist = DB::table('orders')->where('UserID', $userid)->get();
         return view('customer.customerorderspage', ['orderslist' => $orderslist]);
     }
+    // Feedback Page
+    public function indexuserfeedback()
+    {
+        return view('customer.customerfeedbackpage');
+    }
 }
