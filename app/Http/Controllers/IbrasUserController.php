@@ -10,24 +10,51 @@ use Illuminate\Support\Facades\DB;
 
 class IbrasUserController extends Controller
 {
+    public function checkloginstatus()
+    {
+
+        if (session()->has('loggedinuserid')) {
+
+            $userid = session()->get('loggedinuserid');
+            error_log('userid=' . $userid);
+            $roletype = DB::table('usersibras')->where('UserID', $userid)->select('RoleID')->Max('RoleID');
+            if ($roletype == '') {
+                $roletype = 0;
+            }
+            error_log('roletype ' . $roletype);
+            if ($roletype == 0) {
+                return redirect('/inicio');
+            } else if ($roletype == 1) {
+                // Do Nothing
+            } else if ($roletype == 2) {
+                error_log('Admin Home');
+                // return redirect('/adminhome');
+                header("Location: " . app('App\Http\Controllers\IbrasAdminController')->indexadmindashboard());
+            } else {
+                return redirect('/inicio');
+            }
+        } else {
+            return 'true';
+            return redirect('/inicio');
+        }
+    }
     public function indexuserdashboard()
     {
+        // $numberredirect = $this->checkloginstatus();
         $menutable = Menu::all();
 
         return view('customer.customermenupage', ['menutable' => $menutable]);
     }
     public function storeadditemstocart(Request $request)
     {
+        // $this->checkloginstatus();
         $cart = new Cart;
         $userid = session()->get('loggedinuserid');
         $itemname = request('hiddenitemname');
         $itemprice = request('hiddenitemprice');
         $itemid = request('hiddenitemid');
         $itemquantity = request('menuitemquantity');
-        error_log('userid' . $userid);
-        error_log('menuid' . $itemid);
         $cartitems = Cart::where('UserID', $userid)->where('MenuID', $itemid)->where('Quantity', '>', '0')->count();
-        error_log('cartitems' . $cartitems);
         if ($cartitems == '') {
             $cartitems = 0;
         }
@@ -54,7 +81,6 @@ class IbrasUserController extends Controller
             }
             return redirect('/customerhome');
         }
-        // return $totalmenuitems;
     }
     public function indexusercart()
     {
@@ -64,7 +90,6 @@ class IbrasUserController extends Controller
             ->join('usersibras', 'usersibras.UserID', 'cart.UserID')
             ->where('cart.UserID', $userid)
             ->value(DB::raw("SUM(cart.itemprice * cart.quantity)"));
-        // $carttotal = DB::select("SELECT SUM(cart.itemprice * cart.quantity) as total from cart,usersibras where cart.UserID=usersibras.UserID and usersibras.UserID='" . $userid. "'");
         if ($carttotal == '') {
             $carttotal = 0;
         }
@@ -76,9 +101,6 @@ class IbrasUserController extends Controller
             $cartquantity = 0;
         }
         return view('customer.customercartpage', ['carttable' => $carttable, 'carttotal' => $carttotal, 'cartquantity' => $cartquantity]);
-
-
-        // SELECT SUM(cart.itemprice * cart.quantity) as total from cart,users where cart.UserID=users.UserID and users.Username='" . $userid. "'
     }
     // Delete items from the cart
     public function storedeletefromcart(Request $request)
@@ -141,6 +163,6 @@ class IbrasUserController extends Controller
     {
         $userid = session()->get('loggedinuserid');
         $orderslist = DB::table('orders')->where('UserID', $userid)->get();
-        return view('customer.customerorderspage',['orderslist'=>$orderslist]);
+        return view('customer.customerorderspage', ['orderslist' => $orderslist]);
     }
 }

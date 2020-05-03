@@ -51,6 +51,8 @@ Route::get('/adminhome', 'IbrasAdminController@indexadmindashboard');
 // Admin Menu - Need to add form changes
 Route::get('/adminmenu', 'IbrasAdminController@indexadminmenu');
 Route::get('/adminmenu/{MenuID}', 'IbrasAdminController@showadminmenuitem');
+Route::post('/adminmenu/addnewitem', 'IbrasAdminController@showadminaddmenuitem');
+Route::post('/adminmenu/editmenuitem', 'IbrasAdminController@showadmineditmenuitem');
 
 // Admin Feedback - Done
 Route::get('/adminreview', 'IbrasAdminController@indexadminreview');

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class IbrasHomepageController extends Controller
 {
-    //
+
     public function gotoinicio()
     {
         return view('inicio');
@@ -98,6 +98,8 @@ class IbrasHomepageController extends Controller
         $repeatpassword = request('registerrepeatpassword');
         $address = request('registeraddress');
         $usertype = request('registerusertype');
+
+        // Add Validation
         $numberofusers = UsersIbras::where("Username", $username)
             ->count('UserID');
 
@@ -105,8 +107,30 @@ class IbrasHomepageController extends Controller
             // User Exists already
             error_log('user already exists');
         } else {
+            // Add to Register table
+            $data =
+                ['Name' => $fullname, 'Address' => $address, 'UserName' => $username, 'Password' => $password, 'roleid' => $usertype];
+            DB::table('registration')->insert($data);
+            $latestRegID = DB::table('registration')->select('RegID')->Max('RegID');
+            // Add to Usersibras table
+            $data =
+                ['Name' => $fullname,  'Username' => $username, 'Password' => $password, 'RegID' => $latestRegID, 'RoleID' => $usertype];
+            DB::table('usersibras')->insert($data);
+            $latestUserID = DB::table('usersibras')->select('UserID')->Max('UserID');
+            // Add to Profile Table
+            $data =
+                ['UserID' => $latestUserID,  'FullName' => $fullname, 'emailid' => $username, 'address' => $address, 'city' => $address, 'country' => 'USA'];
+            DB::table('profile')->insert($data);
         }
-        return $fullname . "<br>" . $username . "<br>" . $password . "<br>" . $repeatpassword . "<br>" . $address . "<br>" . $usertype;
+        session()->flush();
+        session()->put('loggedinusername', $username);
+        session()->put('loginstatus', 'True');
+        session()->put('loggedinuserid', $latestUserID);
+        if ($usertype == 2) {
+            return redirect('/adminhome');
+        } else if ($usertype == 1) {
+            return redirect('/customerhome');
+        }
     }
     public function indexlogout()
     {

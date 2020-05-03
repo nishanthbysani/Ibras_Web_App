@@ -18,7 +18,7 @@
     <header>
         <div class="topnav" id="myTopnav">
             <div class="dropdown">
-                <button class="dropbtn" onclick="dropdownvisible()"> <i class="fas fa-user"></i> Welcome  {{session()->get('loggedinusername')}}
+                <button class="dropbtn" onclick="dropdownvisible()"> <i class="fas fa-user"></i> Welcome {{session()->get('loggedinusername')}}
                 </button>
                 <div class="dropdown-content">
                     <a href="../HTML/CustomerMyProfile.php">My Profile</a>
@@ -32,8 +32,7 @@
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
         </div>
     </header>
-
-
+    
     @yield('content')
 
     <footer>

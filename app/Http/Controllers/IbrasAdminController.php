@@ -102,6 +102,61 @@ class IbrasAdminController extends Controller
         $menuitems = DB::table('menu')->where('MenuID', $MenuID)->get();
         return view('admin.adminmenupage', ['totalmenuitems' => $totalmenuitems, 'minitemprice' => $minitemprice, 'maxitemprice' => $maxitemprice, 'menutable' => $menutable, 'menuitems' => $menuitems]);
     }
+    public function showadminaddmenuitem()
+    {
+        $menuitemname = request('menuitemname');
+        $menuitemprice = request('menuitemprice');
+        $menuitemdescription = request('menuitemdescription');
+        $menuitemnutrientfacts = request('menuitemnutrientfacts');
+        $menu = new Menu();
+        $menu->itemname = $menuitemname;
+        $menu->price = $menuitemprice;
+        $menu->description = $menuitemdescription;
+        $menu->nutrientfacts = $menuitemnutrientfacts;
+        $save = $menu->save();
+        if ($save) {
+            session()->flash('addtomenu', 'success');
+            return redirect('/adminmenu');
+        } else {
+            session()->flash('addtomenu', 'unsuccess');
+            return redirect('/adminmenu');
+        }
+    }
+    public function showadmineditmenuitem(Request $request)
+    {
+        $menu = new Menu();
+        $menuitemname = request('updatemenuitemname');
+        $menuitemprice = request('updatemenuitemprice');
+        $menuitemdescription = request('updatemenuitemdescription');
+        $menuitemnutrientfacts = request('updatemenuitemnutrientfacts');
+        $menuitemid = request('updatemenuid');
+        switch ($request->input('editmenuitem')) {
+            case 'Delete':
+                // Delete Menu Item
+                $save = Menu::where('MenuID', '=', $menuitemid)->delete();
+                if ($save) {
+                    session()->flash('deletemenuitem', 'success');
+                    return redirect('/adminmenu');
+                } else {
+                    session()->flash('deletemenuitem', 'unsuccess');
+                    return redirect('/adminmenu');
+                }
+                break;
+
+            case 'Update':
+                // Update Menu Item
+                // return $menuitemname.$menuitemprice.$menuitemdescription.$menuitemnutrientfacts.$menuitemid;
+                $save = Menu::where('MenuID',$menuitemid)->update(['itemname' => $menuitemname, 'price' => $menuitemprice, 'description' => $menuitemdescription, 'nutrientfacts' => $menuitemnutrientfacts]);
+                if ($save) {
+                    session()->flash('updatemenuitem', 'success');
+                    return redirect('/adminmenu');
+                } else {
+                    session()->flash('updatemenuitem', 'unsuccess');
+                    return redirect('/adminmenu');
+                }
+                break;
+        }
+    }
     // Admin Feedback
     public function indexadminreview()
     {

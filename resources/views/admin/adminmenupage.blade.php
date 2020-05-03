@@ -38,6 +38,48 @@
     </div>
 </section>
 <main>
+    <!-- Add Item to Menu -->
+    @if(session()->has('addtomenu'))
+    @if(Session::get('addtomenu') == 'success')
+    <div class="alert success" id="alertpopup">
+        <span class="alertclosebtn" onclick="document.getElementById('alertpopup').style.display='none';">&times;</span>
+        <strong>Success!</strong> New Item has been added to the menu list.
+    </div>
+    @elseif(Session::get('addtomenu') == 'unsuccess')
+    <div class="alert unsuccess" id="alertpopup">
+        <span class="alertclosebtn" onclick="document.getElementById('alertpopup').style.display='none';">&times;</span>
+        <strong>Error!</strong> Error while adding new item to the menu list.
+    </div>
+    @endif
+    @endif
+    <!-- Delete Item from Menu -->
+    @if(session()->has('deletemenuitem'))
+    @if(Session::get('deletemenuitem') == 'success')
+    <div class="alert success" id="alertpopup">
+        <span class="alertclosebtn" onclick="document.getElementById('alertpopup').style.display='none';">&times;</span>
+        <strong>Success!</strong> Item has been removed from the menu list.
+    </div>
+    @elseif(Session::get('deletemenuitem') == 'unsuccess')
+    <div class="alert unsuccess" id="alertpopup">
+        <span class="alertclosebtn" onclick="document.getElementById('alertpopup').style.display='none';">&times;</span>
+        <strong>Error!</strong> Error while deleting item from the menu list.
+    </div>
+    @endif
+    @endif
+    <!-- Update Menu Item -->
+    @if(session()->has('updatemenuitem'))
+    @if(Session::get('updatemenuitem') == 'success')
+    <div class="alert success" id="alertpopup">
+        <span class="alertclosebtn" onclick="document.getElementById('alertpopup').style.display='none';">&times;</span>
+        <strong>Success!</strong> An Item has been updated in the menu list.
+    </div>
+    @elseif(Session::get('updatemenuitem') == 'unsuccess')
+    <div class="alert unsuccess" id="alertpopup">
+        <span class="alertclosebtn" onclick="document.getElementById('alertpopup').style.display='none';">&times;</span>
+        <strong>Error!</strong> Error while updating an item in the menu list.
+    </div>
+    @endif
+    @endif
     <button id="menumyBtn" class="addmenubutton" onclick='document.getElementById("menumyModal").style.display = "block"'>Add Item</button>
 
     <!-- Add Menu ItemModal -->
@@ -46,7 +88,8 @@
         <div class="menumodal-content">
             <span class="menuclose"><button class='closebutton' onclick='document.getElementById("menumyModal").style.display = "none"'><i class="far fa-window-close fa-2x"></i></button></span>
             <h3>Add Item</h3>
-            <form onsubmit="return" method="POST">
+            <form onsubmit="return" method="POST" action="/adminmenu/addnewitem">
+                @csrf
                 <div class="row">
                     <div class="col-25">
                         <label for="menuitemname" class="addmenulabel">Item Name</label>
@@ -122,7 +165,8 @@
         <div class="updatemenumodal-content">
             <span class="updatemenuclose"><button class='closebutton' onclick='document.getElementById("updatemenumyModal").style.display = "none"'><i class="far fa-window-close fa-2x"></i></button></span>
             <h3>Update Item</h3>
-            <form onsubmit="return" method="POST">
+            <form onsubmit="return" method="POST" action="/adminmenu/editmenuitem">
+                @csrf
                 <div class="row">
                     <div class="col-25">
                         <label for="menuitemname" class="addmenulabel">Item Name</label>
@@ -155,10 +199,11 @@
                         <input type="text" id="menuitemnutrientfacts" name="updatemenuitemnutrientfacts" class="addmenufield" value="{{$menuitems[0]->nutrientfacts}}"><br>
                     </div>
                 </div>
+                <input type="hidden" name="updatemenuid" value="{{$menuitems[0]->MenuID}}">
                 <br>
                 <div class="row">
-                    <input type="submit" value="Delete" name="deletemenuitem" class="addmenubutton updatedelete">
-                    <input type="submit" value="Update" name="updatemenuitem" class="addmenubutton ">
+                    <input type="submit" value="Delete" name="editmenuitem" class="addmenubutton updatedelete">
+                    <input type="submit" value="Update" name="editmenuitem" class="addmenubutton ">
 
                 </div>
                 @php

@@ -28,13 +28,6 @@
                     <!-- <input type="password" name="password" id="loginpassword"> -->
                     <div class="error" id="passwordErr"></div>
                 </div>
-                <!-- <div id="LoginMessage" style="display:none">
-                        <h3>Password must contain the following: A lowercase, An uppercase</h3>
-                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                        <p id="number" class="invalid">A <b>number</b></p>
-                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                    </div> -->
                 <p>
 
                 </p>
