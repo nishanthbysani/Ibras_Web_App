@@ -800,3 +800,7 @@ body {
 .ratingschecked {
     color: orange;
 }
+
+.sectionclass {
+    margin: auto;
+}

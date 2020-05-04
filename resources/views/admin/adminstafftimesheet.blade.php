@@ -2,9 +2,9 @@
 @extends('admin.sidenavbar')
 @extends('admin.dashboardfooter')
 @section('content')
-<section></section>
-<section></section>
-<section></section>
+<section class='sectionclass'></section>
+<section class='sectionclass'></section>
+<section class='sectionclass'></section>
 <main><br>
     <div class="row" style="text-align:center">
         <h2>Staff Timesheet</h2>

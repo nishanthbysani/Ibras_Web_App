@@ -2,7 +2,7 @@
 @extends('customer.customersidenavbar')
 @extends('customer.dashboardfooter')
 @section('content')
-<section>
+<section class='sectionclass'>
     <div class="userscard">
         <div>
             <h2>Cart Total</h2>
@@ -10,7 +10,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class='sectionclass'>
     <div class="userscard">
         <div>
             <h2>Cart Quantity</h2>
@@ -19,7 +19,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class='sectionclass'>
     <div class="userscard">
         <div>
             <h2>Cart Discount (5%)</h2>

@@ -2,7 +2,7 @@
 @extends('admin.sidenavbar')
 @extends('admin.dashboardfooter')
 @section('content')
-<section>
+<section class='sectionclass'>
     <div id="usercards">
         <div class="userscard">
             <!-- <div> -->
@@ -13,7 +13,7 @@
     </div>
 
 </section>
-<section>
+<section class='sectionclass'>
     <div id="usercards">
 
         <div class="userscard">
@@ -25,7 +25,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class='sectionclass'>
     <div id="usercards">
 
         <div class="userscard">
