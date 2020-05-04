@@ -26,12 +26,12 @@
                 <button class="dropbtn" onclick="dropdownvisible()"> <i class="fas fa-user"></i> Welcome {{session()->get('loggedinusername')}}
                 </button>
                 <div class="dropdown-content">
-                    <a href="../HTML/AdminMyProfile.php">My Profile</a>
+                    <a href="/adminprofile">My Profile</a>
                     <a href="/adminhome" class="navbarhiddenfields">Home</a>
                     <a href="/adminmenu" class="navbarhiddenfields">Menu</a>
                     <a href="/adminreview" class="navbarhiddenfields">Reviews</a>
                     <a href="/adminusers" class="navbarhiddenfields">Users</a>
-                    <a href="./adminenquiry" class="navbarhiddenfields">Enquiries</a>
+                    <a href="/adminenquiry" class="navbarhiddenfields">Enquiries</a>
                     <a href="/admintimesheet" class="navbarhiddenfields">Timesheet</a>
                     <a href="/admininventory" class="navbarhiddenfields">Inventory</a>
                     <a href="/logout">Logout</a>

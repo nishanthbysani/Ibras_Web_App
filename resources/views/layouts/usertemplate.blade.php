@@ -21,7 +21,7 @@
                 <button class="dropbtn" onclick="dropdownvisible()"> <i class="fas fa-user"></i> Welcome {{session()->get('loggedinusername')}}
                 </button>
                 <div class="dropdown-content">
-                    <a href="../HTML/CustomerMyProfile.php">My Profile</a>
+                    <a href="/customerprofile">My Profile</a>
                     <p><a href="/customerhome" class="navbarhiddenfields">Menu</a></p>
                     <p><a href="/customercart" class="navbarhiddenfields">Cart</a></p>
                     <p><a href="/customerorders" class="navbarhiddenfields">Orders</a></p>

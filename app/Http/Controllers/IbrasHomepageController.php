@@ -98,7 +98,7 @@ class IbrasHomepageController extends Controller
         $request->validate([
             'registerfullname' => 'required|alpha',
             'registerpassword' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/',
-            'registerrepeatpassword' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/|same:password',
+            'registerrepeatpassword' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/|same:registerpassword',
             'registeremail' => 'required|regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/|unique:App\UsersIbras,UserName',
             'registeraddress' => 'required',
             'registerusertype'=>'required'

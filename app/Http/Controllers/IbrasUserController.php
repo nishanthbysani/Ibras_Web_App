@@ -184,4 +184,30 @@ class IbrasUserController extends Controller
     {
         return view('customer.customerfeedbackpage');
     }
+    // User Profile
+    public function indexuserprofiles()
+    {
+        $userid = session()->get('loggedinuserid');
+        $profile = DB::table('profile')->where('UserID',17)->get();
+        return view('customer.customermyprofile', ["profile" => $profile]);
+    }
+    public function storeuserupdateprofile()
+    {
+        $userid = session()->get('loggedinuserid');
+        $profilefullname = request('profilefullname');
+        $profileaddress = request('profileaddress');
+        $profilecity = request('profilecity');
+        $profilecountry = request('profilecountry');
+        $profiletelephone = request('profiletelephone');
+        $profileoccupation = request('profileoccupation');
+        $profileworksat = request('profileworksat');
+        $save =  DB::table('profile')->where('UserID', $userid)->update(['FullName' => $profilefullname, 'address' => $profileaddress, 'city' => $profilecity, 'country' => $profilecountry, 'phonenumber' => $profiletelephone, 'occupation' => $profileoccupation, 'worksfor' => $profileworksat]);
+        if ($save) {
+            session()->flash('profileupdated', 'success');
+            return redirect('/customerprofile');
+        } else {
+            session()->flash('profileupdated', 'unsuccess');
+            return redirect('/customerprofile');
+        }
+    }
 }

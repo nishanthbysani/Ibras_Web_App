@@ -73,6 +73,7 @@ Route::get('/admininventory', 'IbrasAdminController@indexadmininventory');
 
 // Admin Profile Page
 Route::get('/adminprofile', 'IbrasAdminController@indexadminprofiles');
+Route::post('/adminprofileupdate', 'IbrasAdminController@storeupdateprofile');
 
 // ?----------------IbrasUser Routes------------------------------------------------------------------------------------------------
 
@@ -91,3 +92,6 @@ Route::get('/placeorder', 'IbrasUserController@indexplaceorder');
 Route::get('/customerorders', 'IbrasUserController@indexuserorders');
 // Feedback Page
 Route::get('/customerfeedback', 'IbrasUserController@indexuserfeedback');
+// Admin Profile Page
+Route::get('/customerprofile', 'IbrasUserController@indexuserprofiles');
+Route::post('/customerprofileupdate', 'IbrasUserController@storeuserupdateprofile');

@@ -97,16 +97,17 @@
     </form>
 
 </div>
+@if ($errors->any())
 <div id="myModalerror" class="modalerror">
 
     <!-- Modal content -->
     <div class="modalerror-content">
         <div class="modalerror-header">
-            <span class="closeerror">&times;</span>
-            <h2>Error</h2>
+            <span class="closeerror" onclick="document.getElementById('myModalerror').style.display='none'">&times;</span>
+            <h1 class='modelerrorstyle'>Error</h1>
         </div>
         <div class="modalerror-body">
-            @if ($errors->any())
+
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -114,14 +115,10 @@
                     @endforeach
                 </ul>
             </div><br />
-            <script type="text/javascript">
-                $(window).load(activatemodelerror());
-            </script>
-            @endif
         </div>
         <div class="modalerror-footer">
-            <h3>Modal Footer</h3>
+            <h1 class='modelerrorstyle'>Please try again.</h1>
         </div>
     </div>
-
 </div>
+@endif

@@ -14,7 +14,7 @@
             <div>
                 <header id="headerIDinicio">
                     <div class="topnav" id="myTopnav">
-                        <img id="navbaricon" src="..\Images\5.png" alt="logo" />
+                        <img id="navbaricon" src="\Images\5.png" alt="logo" />
                         <a href="#" class="active">INICIO</a>
                         <a href="sobrenosotros">SOBRE NOSOTROS</a>
                         <a href="menu">MENU</a>
@@ -163,9 +163,5 @@
 </body>
 
 <script type="text/Javascript" src="/js/script.js"></script>
-@if ($errors->any())
-    @php echo "<script>
-        activatemodelerror();
-    </script>" @endphp
-    @endif
+
 </html>

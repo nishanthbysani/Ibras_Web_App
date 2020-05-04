@@ -173,7 +173,7 @@ class IbrasAdminController extends Controller
             $completedfeedbackitems = 0;
         }
         $reviewitems = DB::select('select a.FeedbackID,a.OrderID,a.Comments,a.Ratings,b.username,a.feedbacktime,a.isfeedbackprovided from feedback a, usersibras b where a.UserID=b.UserID');
-        return view('admin.adminreviewpage', ['totalfeedbackitems'=>$totalfeedbackitems,'pendingfeedbackitems'=>$pendingfeedbackitems,'completedfeedbackitems'=>$completedfeedbackitems,'reviewitems' => $reviewitems]);
+        return view('admin.adminreviewpage', ['totalfeedbackitems' => $totalfeedbackitems, 'pendingfeedbackitems' => $pendingfeedbackitems, 'completedfeedbackitems' => $completedfeedbackitems, 'reviewitems' => $reviewitems]);
     }
     public function showadminreview($status)
     {
@@ -196,7 +196,7 @@ class IbrasAdminController extends Controller
             error_log('completed');
             $reviewitems = DB::select('select a.FeedbackID,a.OrderID,a.Comments,a.Ratings,b.username,a.feedbacktime,a.isfeedbackprovided from feedback a, usersibras b where a.UserID=b.UserID and a.isfeedbackprovided=1');
         }
-        return view('admin.adminreviewpage', ['totalfeedbackitems'=>$totalfeedbackitems,'pendingfeedbackitems'=>$pendingfeedbackitems,'completedfeedbackitems'=>$completedfeedbackitems,'reviewitems' => $reviewitems]);
+        return view('admin.adminreviewpage', ['totalfeedbackitems' => $totalfeedbackitems, 'pendingfeedbackitems' => $pendingfeedbackitems, 'completedfeedbackitems' => $completedfeedbackitems, 'reviewitems' => $reviewitems]);
     }
 
 
@@ -221,7 +221,7 @@ class IbrasAdminController extends Controller
             $completedenquiryitems = 0;
         }
         $reviewitems = DB::select('select ContactID,Name,Email,Subject,Message,enquiretime,isresolved,resolvedby,resolutioncomments,lastupdated from contact');
-        return view('admin.adminenquirypage', ['totalenquiryitems'=>$totalenquiryitems,'pendingenquiryitems'=>$pendingenquiryitems,'completedenquiryitems'=>$completedenquiryitems,'reviewitems' => $reviewitems]);
+        return view('admin.adminenquirypage', ['totalenquiryitems' => $totalenquiryitems, 'pendingenquiryitems' => $pendingenquiryitems, 'completedenquiryitems' => $completedenquiryitems, 'reviewitems' => $reviewitems]);
     }
     public function showadminenquiry($status)
     {
@@ -244,7 +244,7 @@ class IbrasAdminController extends Controller
             error_log('completed');
             $reviewitems = DB::select('select ContactID,Name,Email,Subject,Message,enquiretime,isresolved,resolvedby,resolutioncomments,lastupdated from contact where isresolved=1');
         }
-        return view('admin.adminenquirypage', ['totalenquiryitems'=>$totalenquiryitems,'pendingenquiryitems'=>$pendingenquiryitems,'completedenquiryitems'=>$completedenquiryitems,'reviewitems' => $reviewitems]);
+        return view('admin.adminenquirypage', ['totalenquiryitems' => $totalenquiryitems, 'pendingenquiryitems' => $pendingenquiryitems, 'completedenquiryitems' => $completedenquiryitems, 'reviewitems' => $reviewitems]);
     }
 
 
@@ -260,5 +260,31 @@ class IbrasAdminController extends Controller
     {
         $reviewitems = DB::select('select * from inventory');
         return view('admin.admininventory', ['reviewitems' => $reviewitems]);
+    }
+    // Admin Profile
+    public function indexadminprofiles()
+    {
+        $userid = session()->get('loggedinuserid');
+        $profile = DB::table('profile')->where('UserID', $userid)->get();
+        return view('admin.adminmyprofile', ["profile" => $profile]);
+    }
+    public function storeupdateprofile()
+    {
+        $userid = session()->get('loggedinuserid');
+        $profilefullname = request('profilefullname');
+        $profileaddress = request('profileaddress');
+        $profilecity = request('profilecity');
+        $profilecountry = request('profilecountry');
+        $profiletelephone = request('profiletelephone');
+        $profileoccupation = request('profileoccupation');
+        $profileworksat = request('profileworksat');
+        $save =  DB::table('profile')->where('UserID', $userid)->update(['FullName' => $profilefullname, 'address' => $profileaddress, 'city' => $profilecity, 'country' => $profilecountry, 'phonenumber' => $profiletelephone, 'occupation' => $profileoccupation, 'worksfor' => $profileworksat]);
+        if ($save) {
+            session()->flash('profileupdated', 'success');
+            return redirect('/adminprofile');
+        } else {
+            session()->flash('profileupdated', 'unsuccess');
+            return redirect('/adminprofile');
+        }
     }
 }
