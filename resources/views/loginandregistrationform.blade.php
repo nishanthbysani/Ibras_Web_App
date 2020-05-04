@@ -108,17 +108,17 @@
         </div>
         <div class="modalerror-body">
 
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div><br />
+
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li class="errormessage"><span><i class="far fa-times-circle"></i></span> {{ $error }}</li>
+                @endforeach
+            </ul>
+
         </div>
-        <div class="modalerror-footer">
+        <!-- <div class="modalerror-footer">
             <h1 class='modelerrorstyle'>Please try again.</h1>
-        </div>
+        </div> -->
     </div>
 </div>
 @endif

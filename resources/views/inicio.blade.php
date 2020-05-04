@@ -46,8 +46,8 @@
         <!-- Main Body -->
         <main>
             <div id="maindivhistory">
-                <div id="mainstoryleftimg">
-                </div>
+                <!-- <div id="mainstoryleftimg">
+                </div> -->
                 <div id="wrapper">
                     <img src="..\Images\Burguer.png" alt="" id="maindivburgerimg">
                     <h3 id="maindivstyle">Nuestra historia</h3>
@@ -68,8 +68,8 @@
                             Ibra's Burger Grill.</p>
                     </div>
                 </div>
-                <div id="mainstoryrightimg">
-                </div>
+                <!-- <div id="mainstoryrightimg">
+                </div> -->
             </div>
 
         </main>
