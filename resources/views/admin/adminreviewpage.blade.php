@@ -2,9 +2,42 @@
 @extends('admin.sidenavbar')
 @extends('admin.dashboardfooter')
 @section('content')
-<section></section>
-<section></section>
-<section></section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Total Reviews</h2>
+
+            <p class="menulatestburgerdivp2dashboard">{{ $totalfeedbackitems}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Completed Reviews</h2>
+
+            <p class="menulatestburgerdivp2dashboard">{{ $completedfeedbackitems}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Pending Reviews</h2>
+
+            <p class="menulatestburgerdivp2dashboard">{{ $pendingfeedbackitems}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
 <main><br>
     <div class="row" style="text-align:center">
         <h2>Order Reviews</h2>
@@ -42,17 +75,16 @@
                 </td>
                 <td>
                     @if(empty( $reviewitems->Ratings))
-                    @for ($i = 0; $i < 5; $i++) 
-                    <span class="fa fa-star"></span>
-                    @endfor
-                    @else
+                    @for ($i = 0; $i < 5; $i++) <span class="fa fa-star"></span>
+                        @endfor
+                        @else
                         @for ($i = 0; $i < $reviewitems->Ratings; $i++)
                             <span class="fa fa-star ratingschecked"></span>
-                        @endfor
-                        @for ($i = 0; $i < 5-$reviewitems->Ratings; $i++)
-                            <span class="fa fa-star "></span>
-                        @endfor
-                    @endif
+                            @endfor
+                            @for ($i = 0; $i < 5-$reviewitems->Ratings; $i++)
+                                <span class="fa fa-star "></span>
+                                @endfor
+                                @endif
                 </td>
                 <td>{{$reviewitems->username}}</td>
                 <td>{{$reviewitems->feedbacktime}}</td>

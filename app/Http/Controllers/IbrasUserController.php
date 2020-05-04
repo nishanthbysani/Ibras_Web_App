@@ -41,9 +41,23 @@ class IbrasUserController extends Controller
     public function indexuserdashboard()
     {
         // $numberredirect = $this->checkloginstatus();
+        $totalmenuitems = DB::table('menu')->count();
+        if ($totalmenuitems == '') {
+            $totalmenuitems = 0;
+        }
+
+        $minitemprice = DB::table('menu')->min('price');
+        if ($minitemprice == '') {
+            $minitemprice = 0;
+        }
+
+        $maxitemprice = DB::table('menu')->max('price');
+        if ($maxitemprice == '') {
+            $maxitemprice = 0;
+        }
         $menutable = Menu::all();
 
-        return view('customer.customermenupage', ['menutable' => $menutable]);
+        return view('customer.customermenupage', ['totalmenuitems' => $totalmenuitems, 'minitemprice' => $minitemprice, 'maxitemprice' => $maxitemprice,'menutable' => $menutable]);
     }
     public function storeadditemstocart(Request $request)
     {

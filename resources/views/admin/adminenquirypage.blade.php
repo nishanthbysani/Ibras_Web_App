@@ -2,9 +2,42 @@
 @extends('admin.sidenavbar')
 @extends('admin.dashboardfooter')
 @section('content')
-<section></section>
-<section></section>
-<section></section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Total Enquiries</h2>
+
+            <p class="menulatestburgerdivp2dashboard">{{ $totalenquiryitems}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Completed Enquiries</h2>
+
+            <p class="menulatestburgerdivp2dashboard">{{ $completedenquiryitems}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Pending Enquiries</h2>
+
+            <p class="menulatestburgerdivp2dashboard">{{ $pendingenquiryitems}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
 <main><br>
     <div class="row" style="text-align:center">
         <h2>Enquiries</h2>

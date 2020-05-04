@@ -85,7 +85,7 @@
             @php
             if ($count == 0) {
             echo "<tr>
-                <td colspan='4'>No Rows to Display</td>
+                <td colspan='5'>No Rows to Display</td>
             </tr>";
             }
             @endphp

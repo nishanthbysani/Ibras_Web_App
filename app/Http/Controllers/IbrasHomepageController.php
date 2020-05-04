@@ -57,7 +57,7 @@ class IbrasHomepageController extends Controller
         $username = request('username');
         $password = request('password');
         $request->validate([
-            'username' => 'required|regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/|unique:App\Users,email_id',
+            'username' => 'required|regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/',
             'password' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/',
         ]);
         // Check if the username and password is in the DB

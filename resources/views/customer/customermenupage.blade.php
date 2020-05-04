@@ -2,9 +2,40 @@
 @extends('customer.customersidenavbar')
 @extends('customer.dashboardfooter')
 @section('content')
-<section></section>
-<section></section>
-<section></section>
+<section>
+    <div id="usercards">
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Total Menu Items</h2>
+
+            <p class="menulatestburgerdivp2dashboard">{{$totalmenuitems}} </p>
+        </div>
+    </div>
+</section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Lowest Burger Price</h2>
+
+            <p class="menulatestburgerdivp2dashboard">${{ $minitemprice}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+<section>
+    <div id="usercards">
+
+        <div class="userscard">
+            <!-- <div> -->
+            <h2>Highest Burger Price</h2>
+
+            <p class="menulatestburgerdivp2dashboard">${{ $maxitemprice}}</p>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
 <main>
     <!-- Menu add to cart -->
     @if(session()->has('addtocart'))

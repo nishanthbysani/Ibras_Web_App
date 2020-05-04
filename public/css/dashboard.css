@@ -17,7 +17,14 @@ body {
         "main"
         "footer";
 }
-p,h1,h2,h3,h4,h5,h6{
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Open Sans' !important;
 }
 
@@ -65,7 +72,7 @@ main {
 
 footer {
     grid-area: footer;
-    color:white;
+    color: white;
     background-color: #333;
     text-align: center;
 }
@@ -510,13 +517,14 @@ a:hover {
     font-weight: bold;
 
 }
-.closebutton{
+
+.closebutton {
     background-color: Transparent;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
     overflow: hidden;
-    outline:none;
+    outline: none;
 }
 
 
@@ -723,7 +731,8 @@ input:read-only {
 
 }
 
-#menuitemquantity,.menuquantity {
+#menuitemquantity,
+.menuquantity {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -767,24 +776,27 @@ input:read-only {
     color: black;
 }
 
-section .userscard{
-    margin-top :50%;
+section .userscard {
+    margin-top: 50%;
     margin: auto;
 }
 
-#dashbardadminnavleftinnerdiv{
+#dashbardadminnavleftinnerdiv {
     font-family: 'Open Sans';
     font-weight: bold;
     font-size: 22px;
     text-align: center;
 }
-.menulatestburgerdivp2dashboard{
-    font-size : bold;
+
+.menulatestburgerdivp2dashboard {
+    font-size: bold;
 }
-body{
-    font-family:'Open Sans' !important;
+
+body {
+    font-family: 'Open Sans' !important;
 
 }
+
 .ratingschecked {
     color: orange;
-  }
+}

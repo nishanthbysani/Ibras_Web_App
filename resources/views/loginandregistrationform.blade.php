@@ -97,3 +97,31 @@
     </form>
 
 </div>
+<div id="myModalerror" class="modalerror">
+
+    <!-- Modal content -->
+    <div class="modalerror-content">
+        <div class="modalerror-header">
+            <span class="closeerror">&times;</span>
+            <h2>Error</h2>
+        </div>
+        <div class="modalerror-body">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><br />
+            <script type="text/javascript">
+                $(window).load(activatemodelerror());
+            </script>
+            @endif
+        </div>
+        <div class="modalerror-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    </div>
+
+</div>

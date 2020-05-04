@@ -146,7 +146,7 @@ class IbrasAdminController extends Controller
             case 'Update':
                 // Update Menu Item
                 // return $menuitemname.$menuitemprice.$menuitemdescription.$menuitemnutrientfacts.$menuitemid;
-                $save = Menu::where('MenuID',$menuitemid)->update(['itemname' => $menuitemname, 'price' => $menuitemprice, 'description' => $menuitemdescription, 'nutrientfacts' => $menuitemnutrientfacts]);
+                $save = Menu::where('MenuID', $menuitemid)->update(['itemname' => $menuitemname, 'price' => $menuitemprice, 'description' => $menuitemdescription, 'nutrientfacts' => $menuitemnutrientfacts]);
                 if ($save) {
                     session()->flash('updatemenuitem', 'success');
                     return redirect('/adminmenu');
@@ -160,11 +160,35 @@ class IbrasAdminController extends Controller
     // Admin Feedback
     public function indexadminreview()
     {
+        $totalfeedbackitems = DB::table('feedback')->count();
+        if ($totalfeedbackitems == '') {
+            $totalfeedbackitems = 0;
+        }
+        $pendingfeedbackitems = DB::table('feedback')->where('isfeedbackprovided', 0)->count();
+        if ($pendingfeedbackitems == '') {
+            $pendingfeedbackitems = 0;
+        }
+        $completedfeedbackitems = DB::table('feedback')->where('isfeedbackprovided', 1)->count();
+        if ($completedfeedbackitems == '') {
+            $completedfeedbackitems = 0;
+        }
         $reviewitems = DB::select('select a.FeedbackID,a.OrderID,a.Comments,a.Ratings,b.username,a.feedbacktime,a.isfeedbackprovided from feedback a, usersibras b where a.UserID=b.UserID');
-        return view('admin.adminreviewpage', ['reviewitems' => $reviewitems]);
+        return view('admin.adminreviewpage', ['totalfeedbackitems'=>$totalfeedbackitems,'pendingfeedbackitems'=>$pendingfeedbackitems,'completedfeedbackitems'=>$completedfeedbackitems,'reviewitems' => $reviewitems]);
     }
     public function showadminreview($status)
     {
+        $totalfeedbackitems = DB::table('feedback')->count();
+        if ($totalfeedbackitems == '') {
+            $totalfeedbackitems = 0;
+        }
+        $pendingfeedbackitems = DB::table('feedback')->where('isfeedbackprovided', 0)->count();
+        if ($pendingfeedbackitems == '') {
+            $pendingfeedbackitems = 0;
+        }
+        $completedfeedbackitems = DB::table('feedback')->where('isfeedbackprovided', 1)->count();
+        if ($completedfeedbackitems == '') {
+            $completedfeedbackitems = 0;
+        }
         if ($status == 'pending') {
             error_log('pending');
             $reviewitems = DB::select('select a.FeedbackID,a.OrderID,a.Comments,a.Ratings,b.username,a.feedbacktime,a.isfeedbackprovided from feedback a, usersibras b where a.UserID=b.UserID and a.isfeedbackprovided=0');
@@ -172,7 +196,7 @@ class IbrasAdminController extends Controller
             error_log('completed');
             $reviewitems = DB::select('select a.FeedbackID,a.OrderID,a.Comments,a.Ratings,b.username,a.feedbacktime,a.isfeedbackprovided from feedback a, usersibras b where a.UserID=b.UserID and a.isfeedbackprovided=1');
         }
-        return view('admin.adminreviewpage', ['reviewitems' => $reviewitems]);
+        return view('admin.adminreviewpage', ['totalfeedbackitems'=>$totalfeedbackitems,'pendingfeedbackitems'=>$pendingfeedbackitems,'completedfeedbackitems'=>$completedfeedbackitems,'reviewitems' => $reviewitems]);
     }
 
 
@@ -184,11 +208,35 @@ class IbrasAdminController extends Controller
     // Admin Enquiry
     public function indexadminenquiry()
     {
+        $totalenquiryitems = DB::table('feedback')->count();
+        if ($totalenquiryitems == '') {
+            $totalenquiryitems = 0;
+        }
+        $pendingenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 0)->count();
+        if ($pendingenquiryitems == '') {
+            $pendingenquiryitems = 0;
+        }
+        $completedenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 1)->count();
+        if ($completedenquiryitems == '') {
+            $completedenquiryitems = 0;
+        }
         $reviewitems = DB::select('select ContactID,Name,Email,Subject,Message,enquiretime,isresolved,resolvedby,resolutioncomments,lastupdated from contact');
-        return view('admin.adminenquirypage', ['reviewitems' => $reviewitems]);
+        return view('admin.adminenquirypage', ['totalenquiryitems'=>$totalenquiryitems,'pendingenquiryitems'=>$pendingenquiryitems,'completedenquiryitems'=>$completedenquiryitems,'reviewitems' => $reviewitems]);
     }
     public function showadminenquiry($status)
     {
+        $totalenquiryitems = DB::table('feedback')->count();
+        if ($totalenquiryitems == '') {
+            $totalenquiryitems = 0;
+        }
+        $pendingenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 0)->count();
+        if ($pendingenquiryitems == '') {
+            $pendingenquiryitems = 0;
+        }
+        $completedenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 1)->count();
+        if ($completedenquiryitems == '') {
+            $completedenquiryitems = 0;
+        }
         if ($status == 'pending') {
             error_log('pending');
             $reviewitems = DB::select('select ContactID,Name,Email,Subject,Message,enquiretime,isresolved,resolvedby,resolutioncomments,lastupdated from contact where isresolved=0');
@@ -196,7 +244,7 @@ class IbrasAdminController extends Controller
             error_log('completed');
             $reviewitems = DB::select('select ContactID,Name,Email,Subject,Message,enquiretime,isresolved,resolvedby,resolutioncomments,lastupdated from contact where isresolved=1');
         }
-        return view('admin.adminenquirypage', ['reviewitems' => $reviewitems]);
+        return view('admin.adminenquirypage', ['totalenquiryitems'=>$totalenquiryitems,'pendingenquiryitems'=>$pendingenquiryitems,'completedenquiryitems'=>$completedenquiryitems,'reviewitems' => $reviewitems]);
     }
 
 

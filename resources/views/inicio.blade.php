@@ -159,6 +159,13 @@
         @extends('footer')
     </div>
     @extends('loginandregistrationform')
+
 </body>
+
 <script type="text/Javascript" src="/js/script.js"></script>
+@if ($errors->any())
+    @php echo "<script>
+        activatemodelerror();
+    </script>" @endphp
+    @endif
 </html>
