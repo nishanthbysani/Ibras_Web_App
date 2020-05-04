@@ -71,7 +71,7 @@
                 </td>
                 <td>
                     @if(empty( $reviewitems->Comments))
-                    {{'null'}}
+                    {{'-'}}
                     @else
                     {{$reviewitems->Comments}}
                     @endif
