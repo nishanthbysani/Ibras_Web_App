@@ -199,11 +199,15 @@ class IbrasAdminController extends Controller
         return view('admin.adminreviewpage', ['totalfeedbackitems' => $totalfeedbackitems, 'pendingfeedbackitems' => $pendingfeedbackitems, 'completedfeedbackitems' => $completedfeedbackitems, 'reviewitems' => $reviewitems]);
     }
 
-
+    // Admin Users
     public function indexadminusers()
     {
-        // return view('admin.adminreviewpage');
-
+        $totalusers = DB::table('profile')->count();
+        if ($totalusers == '') {
+            $totalusers = 0;
+        }
+        $userslist = DB::table('profile')->get();
+        return view('admin.adminuserspage', ["userslist" => $userslist,'totalusers'=>$totalusers]);
     }
     // Admin Enquiry
     public function indexadminenquiry()

@@ -130,7 +130,7 @@
         <div class="userscard">
             <h4>Net Earnings</h4>
             <p class="userstitle"><span class="earningsvalue">
-                    {{$netearningsmonthly}}
+                    ${{$netearningsmonthly}}
                 </span></p>
         </div>
 
@@ -152,7 +152,7 @@
             <h4>Monthly Profit</h4>
             <p class="userstitle">
                 <span class="earningsvalue">
-                    {{ $netearningsmonthly*0.15}}
+                    ${{ $netearningsmonthly*0.15}}
                 </span></p>
         </div>
         <br>
@@ -161,7 +161,7 @@
         <div class="userscard">
             <h4>Net Earnings</h4>
             <p class="userstitle"><span class="earningsvalue">
-                    {{ $netearningsdaily }}
+                    ${{ $netearningsdaily }}
                 </span></p>
         </div>
 

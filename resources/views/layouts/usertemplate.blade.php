@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7f30b51250.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="../CSS/ibras.css"> -->
 </head>

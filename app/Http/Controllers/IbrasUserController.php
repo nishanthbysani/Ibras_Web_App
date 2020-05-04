@@ -57,7 +57,7 @@ class IbrasUserController extends Controller
         }
         $menutable = Menu::all();
 
-        return view('customer.customermenupage', ['totalmenuitems' => $totalmenuitems, 'minitemprice' => $minitemprice, 'maxitemprice' => $maxitemprice,'menutable' => $menutable]);
+        return view('customer.customermenupage', ['totalmenuitems' => $totalmenuitems, 'minitemprice' => $minitemprice, 'maxitemprice' => $maxitemprice, 'menutable' => $menutable]);
     }
     public function storeadditemstocart(Request $request)
     {
@@ -182,13 +182,66 @@ class IbrasUserController extends Controller
     // Feedback Page
     public function indexuserfeedback()
     {
-        return view('customer.customerfeedbackpage');
+        $userid = session()->get('loggedinuserid');
+        $feedbackdata = DB::table('feedback')->where('UserID', $userid)->orderBy('isfeedbackprovided', 'ASC')->get();
+        $totalreviewitems = DB::table('feedback')->where('UserID', $userid)->count();
+        if ($totalreviewitems == '') {
+            $totalreviewitems = 0;
+        }
+
+        $pendingreviewitems = DB::table('feedback')->where('UserID', $userid)->where('isfeedbackprovided', 0)->count();
+        if ($pendingreviewitems == '') {
+            $pendingreviewitems = 0;
+        }
+
+        $completedreviewitems = DB::table('feedback')->where('UserID', $userid)->where('isfeedbackprovided', 1)->count();
+        if ($completedreviewitems == '') {
+            $completedreviewitems = 0;
+        }
+        return view('customer.customerfeedbackpage', ['feedbackdata' => $feedbackdata, 'totalreviewitems' => $totalreviewitems, 'pendingreviewitems' => $pendingreviewitems, 'completedreviewitems' => $completedreviewitems]);
+    }
+    public function showuserfeedback($feedbackid)
+    {
+        $userid = session()->get('loggedinuserid');
+        $feedbackdata = DB::table('feedback')->where('UserID', $userid)->orderBy('isfeedbackprovided', 'ASC')->get();
+        $totalreviewitems = DB::table('feedback')->where('UserID', $userid)->count();
+        if ($totalreviewitems == '') {
+            $totalreviewitems = 0;
+        }
+
+        $pendingreviewitems = DB::table('feedback')->where('UserID', $userid)->where('isfeedbackprovided', 0)->count();
+        if ($pendingreviewitems == '') {
+            $pendingreviewitems = 0;
+        }
+
+        $completedreviewitems = DB::table('feedback')->where('UserID', $userid)->where('isfeedbackprovided', 1)->count();
+        if ($completedreviewitems == '') {
+            $completedreviewitems = 0;
+        }
+        $userid = session()->get('loggedinuserid');
+        $feedbackdata = DB::table('feedback')->where('UserID', $userid)->orderBy('isfeedbackprovided', 'ASC')->get();
+        $feedbackdataitem = DB::table('feedback')->where('UserID', $userid)->where('FeedbackID', $feedbackid)->get();
+        return view('customer.customerfeedbackpage', ['feedbackdata' => $feedbackdata, 'feedbackdataitem' => $feedbackdataitem, 'totalreviewitems' => $totalreviewitems, 'pendingreviewitems' => $pendingreviewitems, 'completedreviewitems' => $completedreviewitems]);
+    }
+    public function storeuserfeedback(Request $request)
+    {
+        $feedbackorderid = request('feedbackorderid');
+        $feedbackorderrating = request('feedbackorderrate');
+        $feedbackordercomments = request('feedbackordercomments');
+        $save =  DB::table('feedback')->where('OrderID', $feedbackorderid)->update(['Comments' => $feedbackordercomments, 'Ratings' => $feedbackorderrating, 'isfeedbackprovided' => 1]);
+        if ($save) {
+            session()->flash('feedbackgiven', 'success');
+            return redirect('/customerfeedback');
+        } else {
+            session()->flash('feedbackgiven', 'unsuccess');
+            return redirect('/customerfeedback');
+        }
     }
     // User Profile
     public function indexuserprofiles()
     {
         $userid = session()->get('loggedinuserid');
-        $profile = DB::table('profile')->where('UserID',17)->get();
+        $profile = DB::table('profile')->where('UserID', 17)->get();
         return view('customer.customermyprofile', ["profile" => $profile]);
     }
     public function storeuserupdateprofile()
