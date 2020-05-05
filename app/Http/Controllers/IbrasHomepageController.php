@@ -73,18 +73,25 @@ class IbrasHomepageController extends Controller
             $usertype = $userids->RoleID;
             session()->flush();
             session()->put('loggedinusername', $username);
-            session()->put('loginstatus', 'True');
+            session()->put('loginstatus', true);
             session()->put('loggedinuserid', $userid);
+            session()->flash('loginsuccessflag', 'success');
+            if ($usertype === 2) {
+                session()->put('userrole', 'admin');
+            } else if ($usertype === 1) {
+                session()->put('userrole', 'user');
+            }
             if ($usertype == 2) {
                 return redirect('/adminhome');
             } else if ($usertype == 1) {
                 return redirect('/customerhome');
             }
         } else {
-            session()->flash('loginsuccessflag', 'False');
+            session()->flash('loginsuccessflag', 'unsuccess');
             return redirect('/inicio');
         }
     }
+    // Registration 
     public function storeregistrationcheck(Request $request)
     {
         $fullname = request('registerfullname');
@@ -101,7 +108,7 @@ class IbrasHomepageController extends Controller
             'registerrepeatpassword' => 'required|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,10}$/|same:registerpassword',
             'registeremail' => 'required|regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/|unique:App\UsersIbras,UserName',
             'registeraddress' => 'required',
-            'registerusertype'=>'required'
+            'registerusertype' => 'required'
         ]);
         $numberofusers = UsersIbras::where("Username", $username)
             ->count('UserID');
@@ -127,8 +134,17 @@ class IbrasHomepageController extends Controller
         }
         session()->flush();
         session()->put('loggedinusername', $username);
-        session()->put('loginstatus', 'True');
+        session()->put('loginstatus', true);
         session()->put('loggedinuserid', $latestUserID);
+        if ($usertype == 2) {
+            error_log('user type is 2');
+            session(['userrole' => 'admin']);
+            // session()->put('userrole', 'admin');
+        } else if ($usertype == 1) {
+            error_log('user type is 1');
+            session(['userrole' => 'user']);
+            // session()->put('userrole', 'user');
+        }
         if ($usertype == 2) {
             return redirect('/adminhome');
         } else if ($usertype == 1) {

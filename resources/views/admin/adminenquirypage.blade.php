@@ -75,13 +75,13 @@
                     @endif
                 </td>
                 <td> @if(empty( $reviewitems->resolvedby))
-                    {{'null'}}
+                    {{'-'}}
                     @else
                     {{$reviewitems->resolvedby}}
                     @endif
                 </td>
                 <td>@if(empty( $reviewitems->resolutioncomments))
-                    {{'null'}}
+                    {{'-'}}
                     @else
                     {{$reviewitems->resolutioncomments}}
                     @endif

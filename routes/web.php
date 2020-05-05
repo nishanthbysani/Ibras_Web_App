@@ -48,20 +48,20 @@ Route::get('/logout', 'IbrasHomepageController@indexlogout');
 // Admin Home
 Route::get('/adminhome', 'IbrasAdminController@indexadmindashboard');
 
-// Admin Menu - Need to add form changes
+// Admin Menu
 Route::get('/adminmenu', 'IbrasAdminController@indexadminmenu');
 Route::get('/adminmenu/{MenuID}', 'IbrasAdminController@showadminmenuitem');
 Route::post('/adminmenu/addnewitem', 'IbrasAdminController@showadminaddmenuitem');
 Route::post('/adminmenu/editmenuitem', 'IbrasAdminController@showadmineditmenuitem');
 
-// Admin Feedback - Done
+// Admin Feedback
 Route::get('/adminreview', 'IbrasAdminController@indexadminreview');
 Route::get('/adminreview/{status}', 'IbrasAdminController@showadminreview');
 
-// Admin Users - need to add
+// Admin Users
 Route::get('/adminusers', 'IbrasAdminController@indexadminusers');
 
-// Admin Enquiry - Done
+// Admin Enquiry
 Route::get('/adminenquiry', 'IbrasAdminController@indexadminenquiry');
 Route::get('/adminenquiry/{status}', 'IbrasAdminController@showadminenquiry');
 

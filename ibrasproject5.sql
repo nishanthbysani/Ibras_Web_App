@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2020 at 05:23 PM
+-- Generation Time: May 05, 2020 at 02:47 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -75,7 +75,8 @@ INSERT INTO `contact` (`ContactID`, `Name`, `Email`, `Subject`, `Message`, `enqu
 (26, 'Test', 'Test@gmail.com', 'Test', 'Test', '2020-04-26 01:55:42', 0, NULL, NULL, '2020-04-26 01:55:42'),
 (27, 'New Test', 'newtest@123.com', 'Test123', 'Test123', '2020-04-26 01:56:44', 0, NULL, NULL, '2020-04-26 01:56:44'),
 (28, 'Gaurav', 'gaurav@test.com', 'What?', 'Is this?', '2020-04-26 01:58:04', 0, NULL, NULL, '2020-04-26 01:58:04'),
-(29, 'Nishanth Bysani', 'nishanth.bysani@gmail.com', 'Test', 'Testing', '2020-04-26 19:33:48', 0, NULL, NULL, '2020-04-26 19:33:48');
+(29, 'Nishanth Bysani', 'nishanth.bysani@gmail.com', 'Test', 'Testing', '2020-04-26 19:33:48', 0, NULL, NULL, '2020-04-26 19:33:48'),
+(30, 'Sampada Grover', 'Sampada@gmail.com', 'What?', 'Burger types', '2020-05-04 15:25:23', 0, NULL, NULL, '2020-05-04 15:25:23');
 
 -- --------------------------------------------------------
 
@@ -115,9 +116,13 @@ CREATE TABLE `feedback` (
 INSERT INTO `feedback` (`FeedbackID`, `OrderID`, `Comments`, `Ratings`, `UserID`, `feedbacktime`, `isfeedbackprovided`) VALUES
 (1, 1, NULL, NULL, 8, '2020-04-13 06:44:02', 0),
 (2, 2, NULL, NULL, 9, '2020-04-13 06:44:02', 0),
-(3, 16, NULL, NULL, 17, '2020-04-15 22:25:34', 0),
-(4, 34, NULL, NULL, 17, '2020-05-02 06:53:16', 0),
-(5, 35, NULL, NULL, 17, '2020-05-02 07:02:41', 0);
+(3, 16, 'Add more salt.', 4, 17, '2020-05-04 19:57:10', 1),
+(4, 34, 'Amazing!', 4, 17, '2020-05-03 07:05:02', 1),
+(5, 35, 'Perfect Hamburger.', 5, 17, '2020-05-04 20:04:19', 1),
+(6, 36, NULL, NULL, 17, '2020-05-04 15:31:37', 0),
+(7, 37, 'Perfect', 5, 17, '2020-05-04 20:10:52', 1),
+(8, 38, NULL, NULL, 17, '2020-05-04 22:42:27', 0),
+(9, 39, 'My burger was supposed to be medium-rare.', 3, 17, '2020-05-04 22:43:43', 1);
 
 -- --------------------------------------------------------
 
@@ -162,8 +167,9 @@ INSERT INTO `menu` (`MenuID`, `itemname`, `price`, `description`, `nutrientfacts
 (3, 'Pollo', 14, 'Meat + Chips', 'High Carbs'),
 (5, 'Big Joy', 95, 'Super Special Burger', ' Contains fat and fat'),
 (8, 'Burger', 12, 'Burger', 'Contains Fat'),
-(9, 'New Burger', 12, 'All New burger', 'Fav'),
-(10, 'what burger', 4, 'Burger', 'Burger');
+(9, 'Is this a burger?', 10, 'Burger', 'Contains Carbs'),
+(12, 'What a burger?', 90, 'Ham fried on stove', 'Contains Carbohydrates and Proteins'),
+(16, 'Crisis Burger', 10, 'Best Crisis Burger', 'Contains Fat.');
 
 -- --------------------------------------------------------
 
@@ -225,7 +231,10 @@ INSERT INTO `orderitems` (`OrderitemID`, `orderID`, `menuID`, `quantity`) VALUES
 (34, 34, 5, 3),
 (35, 34, 9, 4),
 (36, 35, 1, 3),
-(37, 35, 10, 2);
+(38, 36, 1, 3),
+(39, 37, 3, 3),
+(40, 38, 1, 2),
+(41, 39, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -256,7 +265,11 @@ INSERT INTO `orders` (`OrderID`, `OrderPrice`, `UserID`, `OrderTime`) VALUES
 (15, 104, 17, '2020-04-15 20:56:35'),
 (16, 38, 17, '2020-04-15 22:25:32'),
 (34, 393, 17, '2020-05-02 06:53:15'),
-(35, 44, 17, '2020-05-02 07:02:40');
+(35, 44, 17, '2020-05-02 07:02:40'),
+(36, 36, 17, '2020-05-04 15:31:36'),
+(37, 42, 17, '2020-05-04 20:10:37'),
+(38, 24, 17, '2020-05-04 22:42:26'),
+(39, 28, 17, '2020-05-04 22:43:02');
 
 -- --------------------------------------------------------
 
@@ -275,6 +288,7 @@ CREATE TABLE `profile` (
   `phonenumber` varchar(255) DEFAULT NULL,
   `occupation` varchar(255) DEFAULT NULL,
   `worksfor` varchar(255) DEFAULT NULL,
+  `profilephoto` varchar(255) DEFAULT NULL,
   `profileupdated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -282,11 +296,17 @@ CREATE TABLE `profile` (
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`ProfileID`, `UserID`, `FullName`, `emailid`, `address`, `city`, `country`, `phonenumber`, `occupation`, `worksfor`, `profileupdated`) VALUES
-(1, 8, 'Nishanth Bysani', 'nishanth.bysani@gmail.com', 'Arlington', 'Arlington', 'USA', '+1 8485684878', 'Stanford University', 'Student', '2020-04-14 22:51:43'),
-(3, 15, 'test', 'test1@gmail.com', 'Arlington', 'Arlington', NULL, NULL, NULL, NULL, '2020-04-14 22:58:28'),
-(4, 16, 'Nick Fury', 'NickFury@shield.com', 'NickFury@shield.com', 'Arlington', 'United States', '+1 784784874', 'Director', 'Shield', '2020-04-14 23:00:37'),
-(5, 18, 'Nishanth Bysani', 'nishanth.bysani@yahoo.com', '402,Bharghav Residency, Plot -18,19,20', '402,Bharghav Residency, Plot -18,19,20', NULL, NULL, NULL, NULL, '2020-04-15 23:24:09');
+INSERT INTO `profile` (`ProfileID`, `UserID`, `FullName`, `emailid`, `address`, `city`, `country`, `phonenumber`, `occupation`, `worksfor`, `profilephoto`, `profileupdated`) VALUES
+(1, 8, 'Nishanth Bysani', 'nishanth.bysani@gmail.com', 'Arlington', 'Arlington', 'USA', '6223032735', 'Stanford University', 'Student', NULL, '2020-05-04 16:39:46'),
+(3, 15, 'test', 'test1@gmail.com', 'Arlington', 'Arlington', NULL, NULL, NULL, NULL, NULL, '2020-04-14 22:58:28'),
+(4, 16, 'Nick Fury', 'NickFury@shield.com', 'NickFury@shield.com', 'Arlington', 'United States', '+1 784784874', 'Director', 'Shield', NULL, '2020-04-14 23:00:37'),
+(5, 18, 'Nishanth Bysani', 'nishanth.bysani@yahoo.com', '402,Bharghav Residency, Plot -18,19,20', '402,Bharghav Residency, Plot -18,19,20', NULL, NULL, NULL, NULL, NULL, '2020-04-15 23:24:09'),
+(6, 19, 'Abhinav', 'abhinav@gmail.com', 'Arlington', 'Arlington', 'USA', NULL, NULL, NULL, NULL, '2020-05-02 22:40:31'),
+(7, 20, 'prady', 'prady@gmail.com', 'Arlington', 'Arlington', 'USA', NULL, NULL, NULL, NULL, '2020-05-02 23:49:21'),
+(8, 21, 'madhavi', 'madhavi@gmail.com', 'Hyderabad', 'Hyderabad', 'USA', NULL, NULL, NULL, NULL, '2020-05-04 15:04:58'),
+(9, 17, 'Jeevesh', 'Jeevesh@gmail.com', 'Arlington', 'Arlington', 'Arlington', '6822302787', 'Student', 'UTA', NULL, '2020-05-04 17:03:23'),
+(26, 38, 'ibrasadmin', 'ibrasadmin@gmail.com', 'Arlington', 'Arlington', 'USA', NULL, NULL, NULL, NULL, '2020-05-05 00:38:35'),
+(27, 39, 'ibrasuser', 'ibrasuser@gmail.com', 'Arlington', 'Arlington', 'USA', NULL, NULL, NULL, NULL, '2020-05-05 00:45:37');
 
 -- --------------------------------------------------------
 
@@ -315,7 +335,12 @@ INSERT INTO `registration` (`RegID`, `Name`, `Address`, `UserName`, `Password`, 
 (20, 'test', 'Arlington', 'test1@gmail.com', 'Test@123', 2, '2020-04-14 22:58:26'),
 (21, 'Nick Fury', 'Arlington', 'NickFury@shield.com', 'Test@123', 2, '2020-04-14 22:59:46'),
 (22, 'Jeevesh', 'Arlington', 'jeevesh@gmail.com', 'Test@123', 1, '2020-04-15 04:08:08'),
-(23, 'Nishanth Bysani', '402,Bharghav Residency, Plot -18,19,20', 'nishanth.bysani@yahoo.com', 'Test@123', 2, '2020-04-15 23:24:07');
+(23, 'Nishanth Bysani', '402,Bharghav Residency, Plot -18,19,20', 'nishanth.bysani@yahoo.com', 'Test@123', 2, '2020-04-15 23:24:07'),
+(24, 'Abhinav', 'Arlington', 'abhinav@gmail.com', 'Test@123', 1, '2020-05-02 22:40:31'),
+(25, 'prady', 'Arlington', 'prady@gmail.com', 'Test@123', 1, '2020-05-02 23:49:21'),
+(26, 'madhavi', 'Hyderabad', 'madhavi@gmail.com', 'Test@123', 2, '2020-05-04 15:04:58'),
+(43, 'ibrasadmin', 'Arlington', 'ibrasadmin@gmail.com', 'Test@123', 2, '2020-05-05 00:39:46'),
+(44, 'ibrasuser', 'Arlington', 'ibrasuser@gmail.com', 'Test@123', 1, '2020-05-05 00:45:37');
 
 -- --------------------------------------------------------
 
@@ -400,7 +425,12 @@ INSERT INTO `usersibras` (`UserID`, `Name`, `Username`, `Password`, `RegID`, `Ro
 (15, 'test', 'test1@gmail.com', 'Test@123', 20, 2),
 (16, 'Nick Fury', 'NickFury@shield.com', 'Test@123', 21, 2),
 (17, 'Jeevesh', 'jeevesh@gmail.com', 'Test@123', 22, 1),
-(18, 'Nishanth Bysani', 'nishanth.bysani@yahoo.com', 'Test@123', 23, 2);
+(18, 'Nishanth Bysani', 'nishanth.bysani@yahoo.com', 'Test@123', 23, 2),
+(19, 'Abhinav', 'abhinav@gmail.com', 'Test@123', 24, 1),
+(20, 'prady', 'prady@gmail.com', 'Test@123', 25, 1),
+(21, 'madhavi', 'madhavi@gmail.com', 'Test@123', 26, 2),
+(38, 'ibrasadmin', 'ibrasadmin@gmail.com', 'Test@123', 43, 2),
+(39, 'ibrasuser', 'ibrasuser@gmail.com', 'Test@123', 44, 1);
 
 --
 -- Indexes for dumped tables
@@ -515,13 +545,13 @@ ALTER TABLE `usersibras`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `CartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `CartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `ContactID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ContactID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -533,7 +563,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `FeedbackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `FeedbackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -545,7 +575,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `MenuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `MenuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -557,25 +587,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orderitems`
 --
 ALTER TABLE `orderitems`
-  MODIFY `OrderitemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `OrderitemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `ProfileID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ProfileID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `RegID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `RegID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -599,7 +629,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `usersibras`
 --
 ALTER TABLE `usersibras`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables

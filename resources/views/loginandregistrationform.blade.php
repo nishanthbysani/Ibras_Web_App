@@ -122,3 +122,20 @@
     </div>
 </div>
 @endif
+@if (Session::get('loginsuccessflag') == 'unsuccess')
+<div id="myModalerror" class="modalerror">
+
+    <!-- Modal content -->
+    <div class="modalerror-content">
+        <div class="modalerror-header">
+            <span class="closeerror" onclick="document.getElementById('myModalerror').style.display='none'">&times;</span>
+            <h1 class='modelerrorstyle'>Error</h1>
+        </div>
+        <div class="modalerror-body">
+            <ul>
+                <li class="errormessage"><span><i class="far fa-times-circle"></i></span> Invalid Username or Password</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@endif
