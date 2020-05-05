@@ -269,7 +269,7 @@ class IbrasUserController extends Controller
         $userrole = session()->get('userrole');
         if ($loggedin == true && $userrole === 'user') {
             $userid = session()->get('loggedinuserid');
-            $profile = DB::table('profile')->where('UserID', 17)->get();
+            $profile = DB::table('profile')->where('UserID', $userid)->get();
             return view('customer.customermyprofile', ["profile" => $profile]);
         } else {
             return redirect('/inicio');

@@ -3,9 +3,6 @@ Team:
 Nishanth Bysani - 1001774644
 Sampada Grover -  1001768624
 
-UTA.Cloud link:
-https://nxb4645.uta.cloud/bysani_ciudad/HTML/Inicio.php
-
 Project Information:
 
 Website for a restaurant called "Ibras"

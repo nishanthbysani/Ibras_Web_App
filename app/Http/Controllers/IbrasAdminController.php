@@ -262,15 +262,15 @@ class IbrasAdminController extends Controller
         $loggedin = session()->get('loginstatus');
         $userrole = session()->get('userrole');
         if ($loggedin == true && $userrole=='admin') {
-            $totalenquiryitems = DB::table('feedback')->count();
+            $totalenquiryitems = DB::table('contact')->count();
             if ($totalenquiryitems == '') {
                 $totalenquiryitems = 0;
             }
-            $pendingenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 0)->count();
+            $pendingenquiryitems = DB::table('contact')->where('isresolved', 0)->count();
             if ($pendingenquiryitems == '') {
                 $pendingenquiryitems = 0;
             }
-            $completedenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 1)->count();
+            $completedenquiryitems = DB::table('contact')->where('isresolved', 1)->count();
             if ($completedenquiryitems == '') {
                 $completedenquiryitems = 0;
             }
@@ -285,15 +285,15 @@ class IbrasAdminController extends Controller
         $loggedin = session()->get('loginstatus');
         $userrole = session()->get('userrole');
         if ($loggedin == true && $userrole=='admin') {
-            $totalenquiryitems = DB::table('feedback')->count();
+            $totalenquiryitems = DB::table('contact')->count();
             if ($totalenquiryitems == '') {
                 $totalenquiryitems = 0;
             }
-            $pendingenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 0)->count();
+            $pendingenquiryitems = DB::table('contact')->where('isresolved', 0)->count();
             if ($pendingenquiryitems == '') {
                 $pendingenquiryitems = 0;
             }
-            $completedenquiryitems = DB::table('feedback')->where('isfeedbackprovided', 1)->count();
+            $completedenquiryitems = DB::table('contact')->where('isresolved', 1)->count();
             if ($completedenquiryitems == '') {
                 $completedenquiryitems = 0;
             }
